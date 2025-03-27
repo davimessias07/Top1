@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cja8y6lxh7xwd"]
+
+[node name="Image" type="MarginContainer"]
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5

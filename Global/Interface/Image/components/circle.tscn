@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://2fwq5eyff1hp"]
+
+[ext_resource type="Texture2D" uid="uid://b5d1gimc0eshy" path="res://Global/Images/circle.png" id="1_de2ly"]
+[ext_resource type="Texture2D" uid="uid://dsetjjirs7tg8" path="res://icon.svg" id="2_lsi42"]
+
+[node name="Circle" type="TextureRect"]
+clip_children = 2
+texture = ExtResource("1_de2ly")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ImageUser" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lsi42")
+expand_mode = 3
+stretch_mode = 5

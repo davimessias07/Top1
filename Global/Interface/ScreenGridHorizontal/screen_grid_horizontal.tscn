@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl21gbumyn8vd"]
+
+[ext_resource type="Script" uid="uid://c1st0wottl3ba" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.gd" id="1_3odvc"]
+
+[node name="ScreenGridHorizontal" type="HBoxContainer"]
+size_flags_vertical = 3
+script = ExtResource("1_3odvc")
