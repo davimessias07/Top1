@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Warmup"
-run/main_scene="uid://dhm2xdmgv4xqo"
+run/main_scene="uid://dpfqtlroyuner"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [debug]
 

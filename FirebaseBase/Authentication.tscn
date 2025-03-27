@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfqtlroyuner"]
+
+[ext_resource type="PackedScene" uid="uid://cpnvqhkg3tjgt" path="res://Global/Interface/BaseModal/base_modal.tscn" id="2_mdw12"]
+[ext_resource type="PackedScene" uid="uid://d1ofg8yi34di6" path="res://AccountController/Login/login.tscn" id="2_tjasm"]
+[ext_resource type="PackedScene" uid="uid://c08wha62o4djx" path="res://AccountController/CreateAccount/create_account.tscn" id="3_cxofk"]
+
+[node name="Authentication" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen" parent="." instance=ExtResource("2_mdw12")]
+layout_mode = 1
+
+[node name="BG" parent="Screen" index="0"]
+self_modulate = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="Login" parent="Screen" instance=ExtResource("2_tjasm")]
+visible = true
+layout_mode = 2
+
+[node name="CreateAccount" parent="Screen" instance=ExtResource("3_cxofk")]
+visible = false
+layout_mode = 2
+
+[editable path="Screen"]
