@@ -24,5 +24,7 @@ func set_nodes_reference():
 func complete_set_nodes():
 	if account_controller.get_state_login():
 		load_scene_controller.trade_scene(path_scenes.MENU)
+		print("Ta logado")
 	else:
 		account_controller.open_login_scene()
+		print("Ta Deslogado")

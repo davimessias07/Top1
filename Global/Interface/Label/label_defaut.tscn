@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://2d7cuw3cs6p0"]
+[gd_scene load_steps=2 format=3 uid="uid://2d7cuw3cs6p0"]
+
+[ext_resource type="Script" uid="uid://bsyypyfbuwipk" path="res://Global/Interface/Label/label_defaut.gd" id="1_uy0cs"]
 
 [node name="LabelDefaut" type="MarginContainer"]
+script = ExtResource("1_uy0cs")
 
-[node name="Username" type="Label" parent="."]
+[node name="Text_label" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Username"

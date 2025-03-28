@@ -11,5 +11,7 @@ func trade_scene(new_scene:String,action:Callable = func ():):
 	AppManager.scenes.add_child(scene)
 	action.call()
 
-func load_scene():
-	pass
+func load_scene(new_scene:String,action:Callable = func ():):
+	var scene = load(new_scene).instantiate()
+	AppManager.scenes.add_child(scene)
+	action.call()
