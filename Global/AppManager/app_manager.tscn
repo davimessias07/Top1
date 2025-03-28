@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgu17jyt0i4wh"]
+
+[ext_resource type="Script" uid="uid://ct5ugvy2c6ulq" path="res://Global/AppManager/app_manager.gd" id="1_fjgmt"]
+[ext_resource type="PackedScene" uid="uid://cfyqrh45wm5gu" path="res://Global/AppManager/Controllers/AccountController/account_controller.tscn" id="2_gjmqx"]
+[ext_resource type="Script" uid="uid://cxjvw22getmy0" path="res://Global/AppManager/Controllers/AccountController/account_controller.gd" id="3_630vb"]
+[ext_resource type="Script" uid="uid://11vup6278qcg" path="res://Global/AppManager/load_scene_controller.gd" id="4_630vb"]
+
+[node name="AppManager" type="Node"]
+script = ExtResource("1_fjgmt")
+
+[node name="AccountController" parent="." instance=ExtResource("2_gjmqx")]
+script = ExtResource("3_630vb")
+
+[node name="LoadSceneController" type="Node" parent="."]
+script = ExtResource("4_630vb")
+
+[node name="Scenes" type="Node" parent="."]

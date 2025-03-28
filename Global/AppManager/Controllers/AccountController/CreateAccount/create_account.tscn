@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c08wha62o4djx"]
 
-[ext_resource type="Script" uid="uid://qn26guevdlpx" path="res://AccountController/CreateAccount/create_account.gd" id="1_a01uh"]
+[ext_resource type="Script" uid="uid://qn26guevdlpx" path="res://Global/AppManager/Controllers/AccountController/CreateAccount/create_account.gd" id="1_a01uh"]
 [ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="2_lhi8r"]
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="3_epux2"]
 [ext_resource type="Texture2D" uid="uid://cnpnhqxaq4rfl" path="res://icon.svg" id="4_viqhx"]

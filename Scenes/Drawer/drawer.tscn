@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckqdhljjtebyx"]
+
+[ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="1_ps13y"]
+[ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_g7gd5"]
+[ext_resource type="PackedScene" uid="uid://cja8y6lxh7xwd" path="res://Global/Interface/Image/image.tscn" id="3_6qu3h"]
+[ext_resource type="PackedScene" uid="uid://2fwq5eyff1hp" path="res://Global/Interface/Image/components/circle.tscn" id="4_1ykcl"]
+[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="5_urrqp"]
+[ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="6_sl0ib"]
+[ext_resource type="PackedScene" uid="uid://djfognxue2fs1" path="res://Global/Interface/Image/components/texture.tscn" id="7_4wlcg"]
+
+[node name="Drawer" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="BG" parent="." instance=ExtResource("1_ps13y")]
+self_modulate = Color(0.262932, 0.262932, 0.262932, 1)
+layout_mode = 2
+
+[node name="ScreenGridVertical" parent="." instance=ExtResource("2_g7gd5")]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Body" type="MarginContainer" parent="ScreenGridVertical"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 10
+
+[node name="ScreenGridVertical" parent="ScreenGridVertical/Body" instance=ExtResource("2_g7gd5")]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Image" parent="ScreenGridVertical/Body/ScreenGridVertical" instance=ExtResource("3_6qu3h")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Circle" parent="ScreenGridVertical/Body/ScreenGridVertical/Image" instance=ExtResource("4_1ykcl")]
+layout_mode = 2
+
+[node name="LabelDefaut" parent="ScreenGridVertical/Body/ScreenGridVertical" instance=ExtResource("5_urrqp")]
+layout_mode = 2
+
+[node name="Buttons" type="MarginContainer" parent="ScreenGridVertical"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ScreenGridVertical" parent="ScreenGridVertical/Buttons" instance=ExtResource("2_g7gd5")]
+layout_mode = 2
+
+[node name="Logout" type="MarginContainer" parent="ScreenGridVertical"]
+layout_mode = 2
+
+[node name="BtnLogout" type="Button" parent="ScreenGridVertical/Logout"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenGridVertical/Logout/BtnLogout"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenGridHorizontal" parent="ScreenGridVertical/Logout/BtnLogout/MarginContainer" instance=ExtResource("6_sl0ib")]
+layout_mode = 2
+
+[node name="Image" parent="ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal" instance=ExtResource("3_6qu3h")]
+layout_mode = 2
+
+[node name="TextureRect" parent="ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal/Image" instance=ExtResource("7_4wlcg")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 0
+
+[node name="LabelDefaut" parent="ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal" instance=ExtResource("5_urrqp")]
+layout_mode = 2
+
+[node name="Username" parent="ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal/LabelDefaut" index="0"]
+text = "Deslogar"
+
+[editable path="ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal/LabelDefaut"]
