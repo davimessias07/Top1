@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c08wha62o4djx"]
+[gd_scene load_steps=10 format=3 uid="uid://c08wha62o4djx"]
 
 [ext_resource type="Script" uid="uid://qn26guevdlpx" path="res://Global/AppManager/Controllers/AccountController/CreateAccount/create_account.gd" id="1_a01uh"]
+[ext_resource type="PackedScene" uid="uid://cpnvqhkg3tjgt" path="res://Global/Interface/BaseModal/base_modal.tscn" id="1_dudd5"]
 [ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="2_lhi8r"]
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="3_epux2"]
 [ext_resource type="Texture2D" uid="uid://cnpnhqxaq4rfl" path="res://icon.svg" id="4_viqhx"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="5_sqttj"]
+[ext_resource type="PackedScene" uid="uid://cja8y6lxh7xwd" path="res://Global/Interface/Image/image.tscn" id="7_bqs61"]
+[ext_resource type="PackedScene" uid="uid://2fwq5eyff1hp" path="res://Global/Interface/Image/components/circle.tscn" id="8_rm8wh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdw12"]
 content_margin_left = 0.0
@@ -15,32 +18,45 @@ bg_color = Color(1, 1, 1, 1)
 corner_detail = 5
 shadow_size = 15
 
-[node name="CreateAccount" type="MarginContainer" node_paths=PackedStringArray("email_line", "password_line")]
-custom_minimum_size = Vector2(500, 600)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="CreateAccountScreen" type="MarginContainer" node_paths=PackedStringArray("email_line", "password_line", "username_line", "sign_in_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_a01uh")
-email_line = NodePath("BG/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical/EmailLineEdit")
-password_line = NodePath("BG/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical/PasswordLineEdit")
+email_line = NodePath("BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical/EmailLineEdit")
+password_line = NodePath("BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical/PasswordLineEdit")
+username_line = NodePath("BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical/Username")
+sign_in_button = NodePath("BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/SignInButton/button")
 
-[node name="BG" parent="." instance=ExtResource("2_lhi8r")]
+[node name="BaseModal" parent="." instance=ExtResource("1_dudd5")]
+layout_mode = 2
+
+[node name="CreateAccount" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical" index="1"]
+custom_minimum_size = Vector2(550, 650)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="BG" parent="BaseModal/BG/ScreenGridVertical/CreateAccount" instance=ExtResource("2_lhi8r")]
 self_modulate = Color(0.20871, 0.20871, 0.20871, 1)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mdw12")
 
-[node name="ScreenGridVertical" parent="BG" instance=ExtResource("3_epux2")]
-layout_mode = 1
+[node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/CreateAccount" instance=ExtResource("3_epux2")]
+layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TopBar" type="MarginContainer" parent="BG/ScreenGridVertical"]
+[node name="TopBar" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
-[node name="BG" parent="BG/ScreenGridVertical/TopBar" instance=ExtResource("2_lhi8r")]
+[node name="BG" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/TopBar" instance=ExtResource("2_lhi8r")]
 self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
 layout_mode = 2
 
-[node name="Logo" type="MarginContainer" parent="BG/ScreenGridVertical/TopBar"]
+[node name="Logo" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/TopBar"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -49,60 +65,92 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="BG/ScreenGridVertical/TopBar/Logo"]
+[node name="TextureRect" type="TextureRect" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/TopBar/Logo"]
 layout_mode = 2
 texture = ExtResource("4_viqhx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Body" type="MarginContainer" parent="BG/ScreenGridVertical"]
+[node name="Body" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="ScreenGridVertical" parent="BG/ScreenGridVertical/Body" instance=ExtResource("3_epux2")]
+[node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body" instance=ExtResource("3_epux2")]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 50
 
-[node name="LabelDefaut" parent="BG/ScreenGridVertical/Body/ScreenGridVertical" instance=ExtResource("5_sqttj")]
+[node name="LabelDefaut" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical" instance=ExtResource("5_sqttj")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Username" parent="BG/ScreenGridVertical/Body/ScreenGridVertical/LabelDefaut" index="0"]
+[node name="Username" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/LabelDefaut" index="0"]
 theme_override_font_sizes/font_size = 45
-text = "Criar Conta"
+text = "Cadastro"
 
-[node name="Lines" type="MarginContainer" parent="BG/ScreenGridVertical/Body/ScreenGridVertical"]
+[node name="Image" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical" instance=ExtResource("7_bqs61")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image" instance=ExtResource("3_epux2")]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Circle" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical" instance=ExtResource("8_rm8wh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical"]
+custom_minimum_size = Vector2(250, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Adicionar Imagem"
+
+[node name="Lines" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="ScreenGridVertical" parent="BG/ScreenGridVertical/Body/ScreenGridVertical/Lines" instance=ExtResource("3_epux2")]
+[node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Lines" instance=ExtResource("3_epux2")]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="EmailLineEdit" type="LineEdit" parent="BG/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical"]
+[node name="EmailLineEdit" type="LineEdit" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 placeholder_text = "Email"
 
-[node name="PasswordLineEdit" type="LineEdit" parent="BG/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical"]
+[node name="PasswordLineEdit" type="LineEdit" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 placeholder_text = "Password"
 secret = true
 
-[node name="Buttons" type="MarginContainer" parent="BG/ScreenGridVertical/Body/ScreenGridVertical"]
+[node name="Username" type="LineEdit" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+placeholder_text = "Username"
+
+[node name="SignInButton" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_top = 15
 
-[node name="ScreenGridVertical" parent="BG/ScreenGridVertical/Body/ScreenGridVertical/Buttons" instance=ExtResource("3_epux2")]
+[node name="button" type="Button" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/SignInButton"]
+custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
-theme_override_constants/separation = 25
+theme_override_font_sizes/font_size = 25
+text = "Criar Conta"
 
-[node name="SigInButton" type="Button" parent="BG/ScreenGridVertical/Body/ScreenGridVertical/Buttons/ScreenGridVertical"]
-layout_mode = 2
-text = "Confirmar"
+[connection signal="pressed" from="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/SignInButton/button" to="." method="_on_button_pressed"]
 
-[connection signal="pressed" from="BG/ScreenGridVertical/Body/ScreenGridVertical/Buttons/ScreenGridVertical/SigInButton" to="." method="_on_sig_in_button_pressed"]
-
-[editable path="BG/ScreenGridVertical/Body/ScreenGridVertical/LabelDefaut"]
+[editable path="BaseModal"]
+[editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/LabelDefaut"]
+[editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image"]
+[editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical/Circle"]
