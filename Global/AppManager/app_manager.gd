@@ -1,6 +1,7 @@
 class_name AppManager extends Node
 
 static var account_controller
+static var global_functions
 static var load_scene_controller
 static var scenes
 
@@ -16,6 +17,7 @@ func connect_signals():
 	complete_set_nodes_reference.connect(complete_set_nodes)
 
 func set_nodes_reference():
+	global_functions = $GlobalFunctions
 	account_controller = $AccountController
 	load_scene_controller = $LoadSceneController
 	scenes = $Scenes

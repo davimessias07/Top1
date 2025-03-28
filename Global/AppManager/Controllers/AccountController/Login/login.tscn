@@ -4,20 +4,9 @@
 [ext_resource type="Script" uid="uid://d2ncrs5v5bcn2" path="res://Global/AppManager/Controllers/AccountController/Login/login.gd" id="1_jc376"]
 [ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="2_lu7n2"]
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="3_y2nhn"]
+[ext_resource type="PackedScene" uid="uid://bysg1vomfts2s" path="res://Global/AppManager/Controllers/AccountController/Feedback/feedback.tscn" id="4_heq6h"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="5_antec"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="6_lu7n2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heq6h"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.392157, 0.392157, 0.392157, 0.392157)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdw12"]
 content_margin_left = 0.0
@@ -30,15 +19,14 @@ shadow_size = 15
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmmfr"]
 
-[node name="LoginScreen" type="MarginContainer" node_paths=PackedStringArray("feedback_label", "feedback_panel", "email_line", "password_line", "login_btn", "create_account_btn")]
+[node name="LoginScreen" type="MarginContainer" node_paths=PackedStringArray("feedback", "email_line", "password_line", "login_btn", "create_account_btn")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jc376")
-feedback_label = NodePath("BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Feedback/Feedback_label")
-feedback_panel = NodePath("BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Feedback/Feedback_panel")
+feedback = NodePath("BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Feedback")
 email_line = NodePath("BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical/EmailLineEdit")
 password_line = NodePath("BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical/MarginContainer/ScreenGridVertical/PasswordLineEdit")
 login_btn = NodePath("BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/ButtonLogin/LoginButton")
@@ -57,26 +45,8 @@ size_flags_vertical = 6
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Feedback" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical"]
-custom_minimum_size = Vector2(0, 75)
+[node name="Feedback" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical" instance=ExtResource("4_heq6h")]
 layout_mode = 2
-
-[node name="Feedback_panel" type="Panel" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Feedback"]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_heq6h")
-
-[node name="Feedback_label" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Feedback" instance=ExtResource("5_antec")]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_right = 15
-
-[node name="Text_label" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Feedback/Feedback_label" index="0"]
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 20
-horizontal_alignment = 0
-vertical_alignment = 1
 
 [node name="Body" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical"]
 layout_mode = 2
@@ -184,6 +154,5 @@ text = "Criar conta"
 [connection signal="pressed" from="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Fotter/ScreenGridHorizontal/CreateAccount" to="BaseModal/BG/ScreenGridVertical/LoginModal" method="_on_login_button_pressed"]
 
 [editable path="BaseModal"]
-[editable path="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Feedback/Feedback_label"]
 [editable path="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Title"]
 [editable path="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Fotter/ScreenGridHorizontal/LabelDefaut"]

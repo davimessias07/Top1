@@ -1,5 +1,7 @@
 extends MarginContainer
 
+const ENDPOINT = "Users"
+
 @export var btn_logout:Button
 
 func connect_buttons():
@@ -7,3 +9,4 @@ func connect_buttons():
 
 func _ready() -> void:
 	connect_buttons()
+	AppManager.global_functions.load_data(ENDPOINT)

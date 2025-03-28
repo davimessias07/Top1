@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bysg1vomfts2s"]
+
+[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="1_coc6a"]
+[ext_resource type="Script" uid="uid://ch1ns5yltk0as" path="res://Global/AppManager/Controllers/AccountController/Feedback/feedback.gd" id="1_y1on2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heq6h"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.392157, 0.392157, 0.392157, 0.392157)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[node name="Feedback" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 75)
+script = ExtResource("1_y1on2")
+
+[node name="Feedback_panel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_heq6h")
+
+[node name="Feedback_label" parent="." instance=ExtResource("1_coc6a")]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Text_label" parent="Feedback_label" index="0"]
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[editable path="Feedback_label"]

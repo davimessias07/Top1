@@ -1,7 +1,6 @@
 extends Control
 
-@export var feedback_label:MarginContainer
-@export var feedback_panel:Panel
+@export var feedback:MarginContainer
 
 @export var email_line:LineEdit
 @export var password_line:LineEdit
@@ -19,7 +18,7 @@ func connect_signal():
 	create_account_btn.connect("pressed",AppManager.account_controller.open_create_account_scene)
 
 func login_request():
-	hide_feedback()
+	feedback.hide_feedback()
 	
 	var email = email_line.text
 	var password = password_line.text
@@ -29,21 +28,9 @@ func on_login_succeeded(auth):
 	print("Autenticate Success >>> ",auth)
 	Firebase.Auth.save_auth(auth)
 	var fn = AppManager.load_scene_controller.trade_scene.bind(AppManager.path_scenes.MENU)
-	show_feedback("Logado com sucesso. Redirecionando...",Color.WEB_GREEN,fn)
-	
+	feedback.show_feedback("Logado com sucesso. Redirecionando...",Color.WEB_GREEN,fn)
 
 func on_login_failed(error_code, message):
 	print(error_code)
 	print(message)
-	show_feedback(message,Color.FIREBRICK)
-
-func show_feedback(new_text,color_label:Color,action:Callable = func():):
-	feedback_panel.self_modulate = color_label
-	feedback_panel.show()
-	feedback_label.set_text(new_text)
-	await get_tree().create_timer(2).timeout
-	action.call()
-
-func hide_feedback():
-	feedback_label.clear_text()
-	feedback_panel.hide()
+	feedback.show_feedback(message,Color.FIREBRICK)

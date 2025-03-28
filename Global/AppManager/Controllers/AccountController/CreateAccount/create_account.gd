@@ -15,7 +15,7 @@ func _ready():
 func on_signup_succeeded(auth):
 	print(auth)
 	Firebase.Auth.save_auth(auth)
-	save_data()
+	save_data_user()
 	AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.MENU)
 
 func on_signup_failed(error_code, message):
@@ -27,30 +27,12 @@ func sig_in_request() -> void:
 	var password = password_line.text
 	Firebase.Auth.signup_with_email_and_password(email, password)
 
-func save_data():
+func save_data_user():
 	
-	var auth = Firebase.Auth.auth
+	var user_info: Dictionary = {
+		"username": username_line.text,
+		"balance": 100,
+		"image":""
+	}
 	
-	if auth.localid:
-		var collection: FirestoreCollection = Firebase.Firestore.collection(ENDPOINT)
-		var data: Dictionary = {
-			"username": username_line.text,
-			"balance": 100,
-			"image":""
-		}
-		
-		var task: FirestoreTask = collection.update(auth.localid,data)
-
-func load_data():
-	var auth = Firebase.Auth.auth
-	if auth.localid:
-		var collection: FirestoreCollection = Firebase.Firestore.collection(ENDPOINT)
-		var task: FirestoreTask = collection.get_doc(auth.localid)
-		var finished_task: FirestoreTask = await task.task_finished
-		var document = finished_task.document
-		
-		if document && document.doc_fields:
-			if document.doc_fields.panda_name:
-				%PandaNameLineEdit.text = document.doc_fields.panda_name
-			else:
-				print(finished_task.error)
+	AppManager.global_functions.load_data(ENDPOINT,user_info)
