@@ -9,4 +9,6 @@ func connect_buttons():
 
 func _ready() -> void:
 	connect_buttons()
-	AppManager.global_functions.load_data(ENDPOINT)
+	var json = await AppManager.global_functions.load_data(ENDPOINT)
+	AppManager.account_controller.json_user = json
+	print("LOCAL >>> ", AppManager.account_controller.json_user)
