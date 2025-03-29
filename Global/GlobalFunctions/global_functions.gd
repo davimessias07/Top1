@@ -1,5 +1,10 @@
 extends Node
 
+func get_remote_user_attrs(action:Callable):
+	var base = await AppManager.global_functions.load_data(AppManager.endpoint.USERS)
+	AppManager.account_controller.json_user = base.doc_fields
+	action.call()
+
 func save_data(endpoint:String,data:Dictionary):
 	var auth = Firebase.Auth.auth
 	
@@ -21,4 +26,10 @@ func load_data(endpoint:String):
 			print("Documento >>> ",document.doc_fields)
 		else:
 			print("documento n encontrado ",finished_task.error)
-	return document.doc_fields
+			
+			if finished_task.error.status == "NOT_FOUND":
+				match finished_task.error.code:
+					"404":
+						pass
+	
+	return document
