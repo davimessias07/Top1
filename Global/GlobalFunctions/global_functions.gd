@@ -27,9 +27,9 @@ func load_data(endpoint:String):
 		else:
 			print("documento n encontrado ",finished_task.error)
 			
-			if finished_task.error.status == "NOT_FOUND":
-				match finished_task.error.code:
-					"404":
-						pass
+			#if finished_task.error.status == "NOT_FOUND":
+				#match finished_task.error.code:
+					#"404":
+						#pass
 	
 	return document

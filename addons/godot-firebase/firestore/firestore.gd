@@ -316,6 +316,8 @@ func _on_FirebaseAuth_logout() -> void:
 func _check_auth_error(code : int, message : String) -> void:
 	var err : String
 	match code:
-		400: err = "Please enable the Anonymous Sign-in method, or Authenticate the Client before issuing a request"
+		400: 
+			err = "Please enable the Anonymous Sign-in method, or Authenticate the Client before issuing a request"
+			AppManager.account_controller.open_login_scene()
 	Firebase._printerr(err)
 	Firebase._printerr(message)

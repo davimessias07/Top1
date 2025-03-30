@@ -57,7 +57,7 @@ func save_data_user_complete():
 
 func get_base_user():
 	var collection: FirestoreCollection = Firebase.Firestore.collection(AppManager.endpoint.USERS)
-	var task: FirestoreTask = collection.get_doc("UserBase")
+	var task: FirestoreTask = collection.get_doc("user_base")
 	var finished_task: FirestoreTask = await task.task_finished
 	var document = finished_task.document
 	return document

@@ -2,10 +2,12 @@ extends Control
 
 var player_status: Dictionary = {}
 var player_id = ""
-var db_ref = Firebase.Database.get_database_reference("player_status")
+var db_ref
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	await get_tree().process_frame
 	player_id = Firebase.Auth.auth.localid
+	db_ref = Firebase.Database.get_database_reference("match_base")
 	# connect both signals to data_updated instead,
 	# if you don't want to deal with the parsing in new_data_udpate and patch_data_update
 	db_ref.new_data_update.connect(new_data_updated)
@@ -90,12 +92,3 @@ func update_player_list():
 				%StatusLineEdit.text = status
 				
 		list += name + " (" + status + ")\n"
-
-
-func _on_update_button_pressed():
-	db_ref.update(player_id, {'name': %NameLineEdit.text, 'status': %StatusLineEdit.text})
-
-
-func _on_logout_button_pressed():
-	Firebase.Auth.logout()
-	get_tree().change_scene_to_file("res://Authentication.tscn")
