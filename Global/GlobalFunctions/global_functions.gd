@@ -2,8 +2,9 @@ extends Node
 
 func get_remote_user_attrs(action:Callable):
 	var base = await AppManager.global_functions.load_data(AppManager.endpoint.USERS)
-	AppManager.account_controller.json_user = base.doc_fields
-	action.call()
+	if base && base.doc_fields:
+		AppManager.account_controller.json_user = base.doc_fields
+		action.call()
 
 func save_data(endpoint:String,data:Dictionary):
 	var auth = Firebase.Auth.auth
