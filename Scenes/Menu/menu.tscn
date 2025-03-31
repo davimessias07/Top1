@@ -28,28 +28,6 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_right = 25
 
-[node name="ChangeState" type="Button" parent="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Body"]
-custom_minimum_size = Vector2(400, 200)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Mudar"
-
-[node name="ScreenGridHorizontal" parent="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Body" instance=ExtResource("2_mf1wf")]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="R6" type="Button" parent="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Body/ScreenGridHorizontal"]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 50
-text = "R6"
-
-[connection signal="pressed" from="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Body/ChangeState" to="." method="_on_r_6_pressed"]
-
 [editable path="BaseModal"]
 [editable path="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Drawer"]
 [editable path="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Drawer/ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal/LabelDefaut"]

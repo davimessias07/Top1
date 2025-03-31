@@ -45,14 +45,14 @@ const _AUTH_PROVIDERS : String = "firebase/auth_providers"
 # These values can be found in your Firebase Project
 # See the README checked Github for how to access
 var _config : Dictionary = {
-	"apiKey": "",
-	"authDomain": "",
-	"databaseURL": "",
-	"projectId": "",
-	"storageBucket": "",
-	"messagingSenderId": "",
-	"appId": "",
-	"measurementId": "",
+	"apiKey": "AIzaSyAuBl6qmU0IBhOmmZT_1G2k6jR0rs2wBWE",
+	"authDomain": "warmup-edcd2.firebaseapp.com",
+	"databaseURL": "https://warmup-edcd2-default-rtdb.firebaseio.com",
+	"projectId": "warmup-edcd2",
+	"storageBucket": "warmup-edcd2.firebasestorage.app",
+	"messagingSenderId": "458471476766",
+	"appId": "1:458471476766:web:a384d0543b566698ece80f",
+	"measurementId": "G-VD68LHMREE",
 	"clientId": "",
 	"clientSecret" : "",
 	"domainUriPrefix" : "",

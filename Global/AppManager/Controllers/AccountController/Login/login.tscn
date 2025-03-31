@@ -50,6 +50,8 @@ layout_mode = 2
 
 [node name="Body" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="BG" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body" instance=ExtResource("2_lu7n2")]
 self_modulate = Color(0.20871, 0.20871, 0.20871, 1)
@@ -64,7 +66,9 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
 
 [node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body" instance=ExtResource("3_y2nhn")]
 custom_minimum_size = Vector2(450, 0)
