@@ -8,6 +8,7 @@ static var scenes
 static var path_scenes = preload("res://Recursos/path_scenes.gd").new()
 static var endpoint = preload("uid://bfpnhfq1b3jbh").new()
 
+
 signal complete_set_nodes_reference
 
 func _ready() -> void:

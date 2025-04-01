@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cea7nw37ng65g"]
+
+[ext_resource type="PackedScene" uid="uid://cpnvqhkg3tjgt" path="res://Global/Interface/BaseModal/base_modal.tscn" id="1_s6q86"]
+[ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_lh0d7"]
+[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="3_croee"]
+
+[node name="Lobbys" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaseModal" parent="." instance=ExtResource("1_s6q86")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="Content" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BaseModal/BG/ScreenGridVertical/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="BaseModal/BG/ScreenGridVertical/Content/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Room" type="Panel" parent="BaseModal/BG/ScreenGridVertical/Content/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(550, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/Content/ScrollContainer/GridContainer/Room" instance=ExtResource("2_lh0d7")]
+layout_mode = 1
+
+[node name="RoomName" parent="BaseModal/BG/ScreenGridVertical/Content/ScrollContainer/GridContainer/Room/ScreenGridVertical" instance=ExtResource("3_croee")]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Text_label" parent="BaseModal/BG/ScreenGridVertical/Content/ScrollContainer/GridContainer/Room/ScreenGridVertical/RoomName" index="0"]
+theme_override_font_sizes/font_size = 35
+text = "NameRoom"
+autowrap_mode = 3
+
+[editable path="BaseModal"]
+[editable path="BaseModal/BG/ScreenGridVertical/Content/ScrollContainer/GridContainer/Room/ScreenGridVertical/RoomName"]

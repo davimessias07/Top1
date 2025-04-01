@@ -10,6 +10,7 @@ func trade_scene(new_scene:String,action:Callable = func ():):
 	var scene = load(new_scene).instantiate()
 	AppManager.scenes.add_child(scene)
 	action.call()
+	return scene
 
 func load_scene(new_scene:String,action:Callable = func ():):
 	var scene = load(new_scene).instantiate()

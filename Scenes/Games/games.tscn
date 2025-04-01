@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cilk2ly4omn3o"]
+
+[ext_resource type="Script" uid="uid://csdg0of46rk4x" path="res://Scenes/Games/games.gd" id="1_fy54f"]
+[ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="1_xhq7j"]
+
+[node name="Games" type="ScrollContainer"]
+vertical_scroll_mode = 0
+script = ExtResource("1_fy54f")
+
+[node name="ScreenGridHorizontal" parent="." instance=ExtResource("1_xhq7j")]
+layout_mode = 2
+size_flags_horizontal = 3

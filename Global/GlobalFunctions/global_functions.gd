@@ -1,7 +1,7 @@
 extends Node
 
 func get_remote_user_attrs(action:Callable):
-	var base = await AppManager.global_functions.load_data(AppManager.endpoint.USERS)
+	var base = await load_data(AppManager.endpoint.USERS)
 	if base && base.doc_fields:
 		AppManager.account_controller.json_user = base.doc_fields
 		action.call()
@@ -13,13 +13,13 @@ func save_data(endpoint:String,data:Dictionary):
 		var collection: FirestoreCollection = Firebase.Firestore.collection(endpoint)
 		var task: FirestoreTask = collection.update(auth.localid,data)
 
-func load_data(endpoint:String):
+func load_data(endpoint:String,doc = Firebase.Auth.auth.localid):
 	var document = null
 	var auth = Firebase.Auth.auth
 	
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection(endpoint)
-		var task: FirestoreTask = collection.get_doc(auth.localid)
+		var task: FirestoreTask = collection.get_doc(doc)
 		var finished_task: FirestoreTask = await task.task_finished
 		document = finished_task.document
 		
@@ -33,4 +33,11 @@ func load_data(endpoint:String):
 					#"404":
 						#pass
 	
+	return document
+
+func get_doc(endpoint,doc):
+	var collection: FirestoreCollection = Firebase.Firestore.collection(endpoint)
+	var task: FirestoreTask = collection.get_doc(doc)
+	var finished_task: FirestoreTask = await task.task_finished
+	var document = finished_task.document
 	return document

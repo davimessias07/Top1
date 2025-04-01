@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4it3wdb77twy"]
+
+[ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="1_000cb"]
+[ext_resource type="Script" uid="uid://bonkvcj6yg6f6" path="res://Scenes/Maps/maps.gd" id="1_dgsm7"]
+[ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="1_mmn7m"]
+[ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_qqssf"]
+[ext_resource type="Texture2D" uid="uid://cnpnhqxaq4rfl" path="res://icon.svg" id="3_4vbec"]
+
+[node name="Maps" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dgsm7")
+
+[node name="BG" parent="." instance=ExtResource("1_mmn7m")]
+layout_mode = 2
+
+[node name="ScreenGridVertical" parent="BG" instance=ExtResource("2_qqssf")]
+layout_mode = 1
+theme_override_constants/separation = 0
+
+[node name="TopBar" type="MarginContainer" parent="BG/ScreenGridVertical"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="BG" parent="BG/ScreenGridVertical/TopBar" instance=ExtResource("1_mmn7m")]
+self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
+layout_mode = 2
+
+[node name="Logo" type="MarginContainer" parent="BG/ScreenGridVertical/TopBar"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="BG/ScreenGridVertical/TopBar/Logo"]
+layout_mode = 2
+texture = ExtResource("3_4vbec")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Scroll" type="ScrollContainer" parent="BG/ScreenGridVertical"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 0
+
+[node name="ScreenGridHorizontal" parent="BG/ScreenGridVertical/Scroll" instance=ExtResource("1_000cb")]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
