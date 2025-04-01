@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm6mfwl1dvl"]
+
+[ext_resource type="Script" uid="uid://dvqied4p1d15l" path="res://Scenes/CreateOrViewLobbys/create_or_view_lobbys.gd" id="1_6j6uu"]
+[ext_resource type="PackedScene" uid="uid://cpnvqhkg3tjgt" path="res://Global/Interface/BaseModal/base_modal.tscn" id="1_bbg8c"]
+[ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="3_2ir4p"]
+[ext_resource type="PackedScene" uid="uid://ci7qobv3vbdu4" path="res://Scenes/CreateOrViewLobbys/Button/button_lobby.tscn" id="4_fsosr"]
+
+[node name="CreateOrViewLobbys" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6j6uu")
+
+[node name="BaseModal" parent="." instance=ExtResource("1_bbg8c")]
+layout_mode = 1
+
+[node name="Body" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScreenGridHorizontal" parent="BaseModal/BG/ScreenGridVertical/Body" instance=ExtResource("3_2ir4p")]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="CreateLobby" parent="BaseModal/BG/ScreenGridVertical/Body/ScreenGridHorizontal" instance=ExtResource("4_fsosr")]
+layout_mode = 2
+description = "Criar Sala"
+
+[node name="ViewLobbys" parent="BaseModal/BG/ScreenGridVertical/Body/ScreenGridHorizontal" instance=ExtResource("4_fsosr")]
+layout_mode = 2
+description = "Ver Salas"
+
+[editable path="BaseModal"]
