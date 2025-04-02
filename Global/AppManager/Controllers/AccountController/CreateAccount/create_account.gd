@@ -1,7 +1,5 @@
 extends MarginContainer
 
-const ENDPOINT = "Users"
-
 @export var email_line:LineEdit
 @export var password_line:LineEdit
 @export var username_line:LineEdit
@@ -36,7 +34,7 @@ func save_data_user(action):
 	if user_info.has("name"):
 		user_info.name = str(name_user)
 	
-	await AppManager.global_functions.save_data(ENDPOINT,user_info)
+	await AppManager.global_functions.save_data(AppManager.endpoint.USERS,user_info)
 	
 	
 	action.call()
