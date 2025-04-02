@@ -126,6 +126,9 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 3
 
 [editable path="BaseModal"]
 [editable path="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Drawer/ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal/LabelDefaut"]
