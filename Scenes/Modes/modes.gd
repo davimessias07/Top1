@@ -13,7 +13,7 @@ func get_all_modes(all_modes):
 	for mode in all_modes:
 		var scene = MODES_BTN.instantiate()
 		screen_grid_horizontal.add_child(scene)
-		scene.set_attrs(mode.mode_name,mode)
+		scene.set_attrs(mode)
 
 func set_name_screen():
 	name_screen.set_text(screen_name,screen_name_font_size)

@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhm2xdmgv4xqo"]
+[gd_scene load_steps=5 format=3 uid="uid://dhm2xdmgv4xqo"]
 
 [ext_resource type="Script" uid="uid://ctovhmq7lu0hp" path="res://Scenes/Menu/menu.gd" id="1_8inha"]
 [ext_resource type="PackedScene" uid="uid://cpnvqhkg3tjgt" path="res://Global/Interface/BaseModal/base_modal.tscn" id="1_tf6kh"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="2_mf1wf"]
-[ext_resource type="PackedScene" uid="uid://ckqdhljjtebyx" path="res://Scenes/Drawer/drawer.tscn" id="3_j7r1e"]
-[ext_resource type="Script" uid="uid://d3e4t5dj1np1p" path="res://Scenes/Drawer/drawer.gd" id="4_8inha"]
 [ext_resource type="PackedScene" uid="uid://cilk2ly4omn3o" path="res://Scenes/Games/games.tscn" id="6_n2mnh"]
 
 [node name="Menu" type="CanvasLayer"]
@@ -12,28 +10,24 @@ script = ExtResource("1_8inha")
 
 [node name="BaseModal" parent="." instance=ExtResource("1_tf6kh")]
 
-[node name="BG" parent="BaseModal" index="0"]
-self_modulate = Color(0.194349, 0.194349, 0.194349, 1)
+[node name="TopBar" parent="BaseModal/BG/ScreenGridVertical" index="0"]
+custom_minimum_size = Vector2(0, 100)
 
 [node name="ScreenGridHorizontal" parent="BaseModal/BG/ScreenGridVertical" index="1" instance=ExtResource("2_mf1wf")]
 layout_mode = 2
 
-[node name="Drawer" parent="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal" node_paths=PackedStringArray("btn_logout") instance=ExtResource("3_j7r1e")]
-layout_mode = 2
-script = ExtResource("4_8inha")
-btn_logout = NodePath("ScreenGridVertical/Logout/BtnLogout")
-
 [node name="Body" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 25
 
 [node name="Games" parent="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Body" instance=ExtResource("6_n2mnh")]
 layout_mode = 2
 
 [editable path="BaseModal"]
-[editable path="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Drawer"]
-[editable path="BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Drawer/ScreenGridVertical/Logout/BtnLogout/MarginContainer/ScreenGridHorizontal/LabelDefaut"]
+[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer/HBoxContainer/LabelDefaut"]
+[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut"]
+[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut2"]

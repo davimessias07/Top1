@@ -1,8 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpnvqhkg3tjgt"]
+[gd_scene load_steps=12 format=3 uid="uid://cpnvqhkg3tjgt"]
 
 [ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="1_du23g"]
+[ext_resource type="Texture2D" uid="uid://0o3oqdnhy4bx" path="res://Global/Images/Bg.jpg" id="2_5x32b"]
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_cdl3q"]
-[ext_resource type="Texture2D" uid="uid://cnpnhqxaq4rfl" path="res://icon.svg" id="3_aqrgt"]
+[ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="3_cdl3q"]
+[ext_resource type="Texture2D" uid="uid://c5h671gq11t3b" path="res://Global/Images/Logo.png" id="3_kyq8q"]
+[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="4_aqrgt"]
+[ext_resource type="PackedScene" uid="uid://2fwq5eyff1hp" path="res://Global/Interface/Image/components/circle.tscn" id="6_kyq8q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vycu7"]
+texture = ExtResource("2_5x32b")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x32b"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdl3q"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyq8q"]
+draw_center = false
 
 [node name="BaseModal" type="MarginContainer"]
 anchors_preset = 15
@@ -13,30 +38,140 @@ grow_vertical = 2
 
 [node name="BG" parent="." instance=ExtResource("1_du23g")]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vycu7")
 
 [node name="ScreenGridVertical" parent="BG" instance=ExtResource("2_cdl3q")]
 layout_mode = 1
 theme_override_constants/separation = 0
 
 [node name="TopBar" type="MarginContainer" parent="BG/ScreenGridVertical"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
 [node name="BG" parent="BG/ScreenGridVertical/TopBar" instance=ExtResource("1_du23g")]
 self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5x32b")
 
 [node name="Logo" type="MarginContainer" parent="BG/ScreenGridVertical/TopBar"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="BG/ScreenGridVertical/TopBar/Logo"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-texture = ExtResource("3_aqrgt")
+size_flags_horizontal = 3
+texture = ExtResource("3_kyq8q")
 expand_mode = 1
-stretch_mode = 5
+
+[node name="ScreenGridHorizontal" parent="BG/ScreenGridVertical/TopBar" instance=ExtResource("3_cdl3q")]
+layout_mode = 2
+
+[node name="StatusServer" type="MarginContainer" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_left = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ColorStatus" type="Panel" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdl3q")
+
+[node name="LabelDefaut" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer/HBoxContainer" instance=ExtResource("4_aqrgt")]
+layout_mode = 2
+
+[node name="Text_label" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer/HBoxContainer/LabelDefaut" index="0"]
+theme_override_font_sizes/font_size = 15
+text = "status"
+
+[node name="Scenes" type="MarginContainer" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 4.5
+
+[node name="ScreenGridHorizontal" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/Scenes" instance=ExtResource("3_cdl3q")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 50
+
+[node name="Home" type="Button" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/Scenes/ScreenGridHorizontal"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyq8q")
+action_mode = 0
+text = "MENU PRINCIPAL"
+
+[node name="Games" type="Button" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/Scenes/ScreenGridHorizontal"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyq8q")
+action_mode = 0
+text = "JOGOS"
+
+[node name="Torneaments" type="Button" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/Scenes/ScreenGridHorizontal"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kyq8q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyq8q")
+action_mode = 0
+text = "TORNEIOS"
+
+[node name="User" type="MarginContainer" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_right = 15
+
+[node name="ScreenGridHorizontal" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User" instance=ExtResource("3_cdl3q")]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="ScreenGridVertical" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal" instance=ExtResource("2_cdl3q")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+
+[node name="LabelDefaut" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical" instance=ExtResource("4_aqrgt")]
+layout_mode = 2
+
+[node name="Text_label" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "Username"
+
+[node name="LabelDefaut2" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical" instance=ExtResource("4_aqrgt")]
+layout_mode = 2
+
+[node name="Text_label" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut2" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "R$ 100"
+
+[node name="Circle" parent="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal" instance=ExtResource("6_kyq8q")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[editable path="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer/HBoxContainer/LabelDefaut"]
+[editable path="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut"]
+[editable path="BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut2"]

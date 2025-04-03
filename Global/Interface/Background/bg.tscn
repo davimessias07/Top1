@@ -1,17 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://do2raj5ioala3"]
+[gd_scene load_steps=4 format=3 uid="uid://do2raj5ioala3"]
 
+[ext_resource type="Texture2D" uid="uid://0o3oqdnhy4bx" path="res://Global/Images/Bg.jpg" id="1_05wl5"]
 [ext_resource type="Script" uid="uid://6ljwm6clqa3a" path="res://Global/Interface/Background/bg.gd" id="1_obval"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obval"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(1, 1, 1, 1)
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30sva"]
+texture = ExtResource("1_05wl5")
 
 [node name="BG" type="Panel"]
-self_modulate = Color(0.196078, 0.196078, 0.196078, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,5 +14,5 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_obval")
+theme_override_styles/panel = SubResource("StyleBoxTexture_30sva")
 script = ExtResource("1_obval")

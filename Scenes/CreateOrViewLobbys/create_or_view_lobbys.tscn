@@ -31,6 +31,7 @@ layout_mode = 2
 description = "Criar Sala"
 
 [node name="ViewLobbys" parent="BaseModal/BG/ScreenGridVertical/Body/ScreenGridHorizontal" instance=ExtResource("4_fsosr")]
+visible = false
 layout_mode = 2
 description = "Ver Salas"
 

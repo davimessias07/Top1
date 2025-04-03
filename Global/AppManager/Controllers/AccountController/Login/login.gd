@@ -27,7 +27,7 @@ func login_request():
 func on_login_succeeded(auth):
 	print("Autenticate Success >>> ",auth)
 	Firebase.Auth.save_auth(auth)
-	var json = await AppManager.global_functions.load_data(AppManager.endpoint.USERS)
+	var json = AppManager.global_functions.load_data(AppManager.endpoint.USERS)
 	AppManager.account_controller.json_user = json.doc_fields
 	var fn = AppManager.load_scene_controller.trade_scene.bind(AppManager.path_scenes.MENU)
 	feedback.show_feedback("Logado com sucesso. Redirecionando...",Color.WEB_GREEN,fn)
