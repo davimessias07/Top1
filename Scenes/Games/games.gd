@@ -11,4 +11,4 @@ func get_all_games():
 	for game in collection.doc_fields.games:
 		var scene = GAME_BTN.instantiate()
 		screen_grid_horizontal.add_child(scene)
-		scene.set_attrs(game.game_name,game)
+		scene.set_attrs(game)

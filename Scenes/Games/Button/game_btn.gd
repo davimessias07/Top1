@@ -5,10 +5,10 @@ extends TextureRect
 
 var game_infos 
 
-func set_attrs(name_item,attrs):
+func set_attrs(attrs):
 	game_infos = attrs
 	button.connect("pressed",btn_pressed)
-	label_defaut.set_text(name_item)
+	label_defaut.set_text(attrs.game_name)
 
 func btn_pressed():
 	var scene = await AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.MODES)
