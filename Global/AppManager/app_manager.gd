@@ -34,6 +34,7 @@ func set_nodes_reference():
 	complete_set_nodes_reference.emit()
 
 func complete_set_nodes():
+	DisplayServer.window_set_current_screen(0)
 	check_login()
 
 func check_login():

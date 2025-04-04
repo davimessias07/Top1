@@ -261,8 +261,8 @@ func _ready():
 	_progress_timer.paused = true
 	
 	#load the custom progress scene
-	if not progress_scene:
-		progress_scene = load("res://addons/HTTPManager/progress/progress.tscn")
+	#if not progress_scene:
+		#progress_scene = load("res://addons/HTTPManager/progress/progress.tscn")
 	
 	#add the progress scene
 	if display_progress == true:
