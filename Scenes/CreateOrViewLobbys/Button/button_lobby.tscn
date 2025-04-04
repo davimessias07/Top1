@@ -1,31 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci7qobv3vbdu4"]
+[gd_scene load_steps=6 format=3 uid="uid://ci7qobv3vbdu4"]
 
-[ext_resource type="Script" uid="uid://c34ndn5n6uv7" path="res://Scenes/CreateOrViewLobbys/Button/button_lobby.gd" id="1_osi6u"]
+[ext_resource type="Texture2D" uid="uid://dxycqppncicp3" path="res://Global/Images/Criar_sala.png" id="1_osi6u"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="2_l47mt"]
+[ext_resource type="Script" uid="uid://c34ndn5n6uv7" path="res://Scenes/CreateOrViewLobbys/Button/button_lobby.gd" id="2_s1xhg"]
 
-[node name="ButtonLobby" type="MarginContainer"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s1xhg"]
+texture = ExtResource("1_osi6u")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1diyn"]
+
+[node name="Button" type="Button"]
 custom_minimum_size = Vector2(500, 500)
+offset_right = 500.0
+offset_bottom = 500.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_s1xhg")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_s1xhg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s1xhg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s1xhg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s1xhg")
+script = ExtResource("2_s1xhg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1diyn")
+
+[node name="LabelDefaut" parent="Panel" instance=ExtResource("2_l47mt")]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_left = -31.0
+offset_top = -77.0
+offset_right = 32.0
+offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("1_osi6u")
-
-[node name="Image" type="TextureRect" parent="."]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 2
-
-[node name="LabelDefaut" parent="." instance=ExtResource("2_l47mt")]
-layout_mode = 2

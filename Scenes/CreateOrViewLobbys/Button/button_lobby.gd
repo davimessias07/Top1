@@ -1,7 +1,6 @@
-extends MarginContainer
+extends Button
 
-@onready var button: Button = $Button
-@onready var label_defaut: MarginContainer = $LabelDefaut
+@onready var label_defaut: MarginContainer = $Panel/LabelDefaut
 
 @export var description:String
 @export var font_size_description:int = 30

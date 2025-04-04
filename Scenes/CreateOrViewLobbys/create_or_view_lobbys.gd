@@ -1,7 +1,7 @@
 extends Control
 
-@onready var create_lobby: MarginContainer = $Body/ScreenGridHorizontal/CreateLobby
-@onready var view_lobbys: MarginContainer = $Body/ScreenGridHorizontal/ViewLobbys
+@onready var create_lobby: Button = $Body/ScreenGridHorizontal/CreateLobby
+@onready var view_lobbys: Button = $Body/ScreenGridHorizontal/ViewLobbys
 
 var player_id = ""
 var db_ref = Firebase.Database.get_database_reference("Games/R6/lobbys/1vs1/rooms")
@@ -25,8 +25,8 @@ func patch_data_updated(data):
 	print(data)
 
 func set_buttons():
-	create_lobby.button.connect("pressed",create_room)
-	view_lobbys.button.connect("pressed",instance_room_view)
+	create_lobby.connect("pressed",create_room)
+	view_lobbys.connect("pressed",instance_room_view)
 
 func create_room():
 	var type_room = data_mode.mode_name
