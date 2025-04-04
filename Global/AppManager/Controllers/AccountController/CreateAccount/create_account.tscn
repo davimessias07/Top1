@@ -32,6 +32,9 @@ sign_in_button = NodePath("BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenG
 [node name="BaseModal" parent="." instance=ExtResource("1_dudd5")]
 layout_mode = 2
 
+[node name="ScreenGridHorizontal" parent="BaseModal/BG/ScreenGridVertical/TopBar" index="2"]
+visible = false
+
 [node name="CreateAccount" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical" index="1"]
 custom_minimum_size = Vector2(550, 650)
 layout_mode = 2
@@ -126,6 +129,9 @@ text = "Criar Conta"
 [connection signal="pressed" from="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/SignInButton/button" to="." method="_on_button_pressed"]
 
 [editable path="BaseModal"]
+[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer/HBoxContainer/LabelDefaut"]
+[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut"]
+[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut2"]
 [editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Title"]
 [editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image"]
 [editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical/Circle"]

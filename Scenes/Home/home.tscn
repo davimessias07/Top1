@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmjqdkntw4xhh"]
+
+[ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="1_dk6x0"]
+[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="2_ppqve"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8inha"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Home" type="PanelContainer"]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="ScreenGridVertical" parent="ScrollContainer" instance=ExtResource("1_dk6x0")]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Notícias" parent="ScrollContainer/ScreenGridVertical" instance=ExtResource("2_ppqve")]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 35
+
+[node name="Text_label" parent="ScrollContainer/ScreenGridVertical/Notícias" index="0"]
+theme_override_font_sizes/font_size = 50
+text = "Notícias"
+horizontal_alignment = 0
+uppercase = true
+
+[node name="MarginVideo" type="MarginContainer" parent="ScrollContainer/ScreenGridVertical"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="Video" type="VideoStreamPlayer" parent="ScrollContainer/ScreenGridVertical/MarginVideo"]
+custom_minimum_size = Vector2(1200, 700)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="ScrollContainer/ScreenGridVertical/MarginVideo/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8inha")
+
+[node name="ProjectInfo" parent="ScrollContainer/ScreenGridVertical" instance=ExtResource("2_ppqve")]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 35
+
+[node name="Text_label" parent="ScrollContainer/ScreenGridVertical/ProjectInfo" index="0"]
+theme_override_font_sizes/font_size = 35
+text = "Informações do projeto"
+horizontal_alignment = 0
+uppercase = true
+
+[node name="Description" parent="ScrollContainer/ScreenGridVertical" instance=ExtResource("2_ppqve")]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 65
+
+[node name="Text_label" parent="ScrollContainer/ScreenGridVertical/Description" index="0"]
+text = "O que é?
+
+RiseUp Arena é uma plataforma de apostas baseadas em desempenho, onde jogadores de PC
+competem entre si em partidas valendo dinheiro real. Não é sorte. É skill, estratégia e resultado.
+
+Como funciona?
+
+- Jogadores (solo ou em times) entram em duelos ou confrontos diretos.
+
+- Ambos depositam um valor previamente acordado.
+
+- O sistema acompanha a partida e define o vencedor com base em estatísticas reais de
+performance.
+
+- O vencedor leva o prêmio (menos taxas da plataforma).
+
+Legalidade:
+
+- Classificada como aposta de habilidade (skill-based), com suporte jurídico adequado.
+
+- Modelo preparado para seguir as diretrizes legais brasileiras e internacionais.
+
+Plataforma:
+
+- Exclusiva para PC, com foco nos principais jogos competitivos.
+
+- Conectada via API às plataformas dos games para garantir a precisão dos resultados.
+
+- Interface gamer-friendly, com visual dinâmico e intuitivo.
+
+Monetização:
+
+- Taxa por partida.
+
+- Planos VIP e torneios patrocinados.
+
+- Loja futura com itens digitais e parcerias.
+
+Potencial:
+
+- Nicho crescente no cenário competitivo.
+
+- Alvo: jogadores que já gastam tempo e dinheiro em games ? agora podem ganhar com
+performance."
+horizontal_alignment = 0
+autowrap_mode = 3
+
+[editable path="ScrollContainer/ScreenGridVertical/Notícias"]
+[editable path="ScrollContainer/ScreenGridVertical/ProjectInfo"]
+[editable path="ScrollContainer/ScreenGridVertical/Description"]

@@ -1,7 +1,10 @@
 extends Node
 
+const BODY = "uid://bk5pwcaa0fm6u"
+
 func set_setup(parent_instance_setup):
-	pass
+	var scene = await AppManager.load_scene_controller.load_scene(BODY,func():pass,parent_instance_setup)
+	scene.set_host_attrs()
 
 #func instance_lobbys():
 	#var path = "Games/R6/lobbys/1vs1"

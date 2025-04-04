@@ -1,6 +1,6 @@
 extends Node
 
-var json_user
+var data_user
 
 func get_state_login() -> bool:
 	return Firebase.Auth.check_auth_file()

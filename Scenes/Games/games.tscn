@@ -16,3 +16,4 @@ script = ExtResource("1_fy54f")
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 size_flags_vertical = 6
+alignment = 1

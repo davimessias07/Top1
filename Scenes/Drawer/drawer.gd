@@ -8,4 +8,4 @@ func connect_buttons():
 
 func _ready() -> void:
 	connect_buttons()
-	label_defaut.set_text(AppManager.account_controller.json_user.name)
+	label_defaut.set_text(AppManager.account_controller.data_user.name)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt12yd168cto4"]
+
+[ext_resource type="Script" uid="uid://c6t2857xvh3xr" path="res://addons/HTTPManager/classes/HTTPManager.gd" id="1_ql4bn"]
+[ext_resource type="PackedScene" uid="uid://bv5iovcvbaon5" path="res://Mobtex/progress/progress.tscn" id="2_jp8k4"]
+
+[node name="HTTPManager" type="Node"]
+script = ExtResource("1_ql4bn")
+display_progress = true
+progress_scene = ExtResource("2_jp8k4")

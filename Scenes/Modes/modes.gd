@@ -1,8 +1,8 @@
 extends MarginContainer
 
-@onready var name_screen: MarginContainer = $BG/ScreenGridVertical/NameScreen
+@onready var name_screen: MarginContainer = $ScreenGridVertical/NameScreen
 const MODES_BTN = preload("uid://cfdgpsufghyd4")
-@onready var screen_grid_horizontal: HBoxContainer = $BG/ScreenGridVertical/Scroll/ScreenGridHorizontal
+@onready var screen_grid_horizontal: HBoxContainer = $ScreenGridVertical/Scroll/ScreenGridHorizontal
 
 @export var screen_name:String
 @export var screen_name_font_size:int = 30

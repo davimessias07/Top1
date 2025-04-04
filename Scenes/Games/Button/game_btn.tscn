@@ -1,22 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmo1j8x7oeji7"]
+[gd_scene load_steps=6 format=3 uid="uid://cmo1j8x7oeji7"]
 
 [ext_resource type="Script" uid="uid://c54v4kpsrgrrp" path="res://Scenes/Games/Button/game_btn.gd" id="1_153m3"]
+[ext_resource type="Texture2D" uid="uid://dt8jlyaxqyba2" path="res://Global/Images/PERSON.png" id="2_axbif"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="2_vgeyj"]
 
-[node name="GameBtn" type="TextureRect"]
-custom_minimum_size = Vector2(450, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-script = ExtResource("1_153m3")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oi0an"]
+texture = ExtResource("2_axbif")
 
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 1
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vgeyj"]
+
+[node name="GameBtn" type="Button"]
+custom_minimum_size = Vector2(500, 500)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,8 +18,28 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_oi0an")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oi0an")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oi0an")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_oi0an")
+theme_override_styles/normal = SubResource("StyleBoxTexture_oi0an")
+action_mode = 0
+script = ExtResource("1_153m3")
 
-[node name="LabelDefaut" parent="." instance=ExtResource("2_vgeyj")]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -81.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vgeyj")
+
+[node name="LabelDefaut" parent="Panel" instance=ExtResource("2_vgeyj")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

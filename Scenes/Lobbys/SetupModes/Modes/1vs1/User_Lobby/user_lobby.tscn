@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://1lyhum8j6io7"]
+
+[ext_resource type="Script" uid="uid://duexeor37uu8c" path="res://Scenes/Lobbys/SetupModes/Modes/1vs1/User_Lobby/user_lobby.gd" id="1_6jyxp"]
+[ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="1_swniu"]
+[ext_resource type="PackedScene" uid="uid://2fwq5eyff1hp" path="res://Global/Interface/Image/components/circle.tscn" id="2_75jml"]
+[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="3_hxwd6"]
+
+[node name="user_lobby" type="MarginContainer"]
+offset_right = 100.0
+offset_bottom = 172.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.75
+script = ExtResource("1_6jyxp")
+
+[node name="ScreenGridVertical" parent="." instance=ExtResource("1_swniu")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="UserImage" parent="ScreenGridVertical" instance=ExtResource("2_75jml")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Username" parent="ScreenGridVertical" instance=ExtResource("3_hxwd6")]
+layout_mode = 2

@@ -46,11 +46,11 @@ func save_data_user_complete():
 	var json = await AppManager.global_functions.load_data(AppManager.endpoint.USERS)
 	
 	if json:
-		AppManager.account_controller.json_user = json.doc_fields
+		AppManager.account_controller.data_user = json.doc_fields
 	
 	AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.MENU)
 	
-	print("LOCAL >>> ", AppManager.account_controller.json_user)
+	print("LOCAL >>> ", AppManager.account_controller.data_user)
 
 
 func get_base_user():

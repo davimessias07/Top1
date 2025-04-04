@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4tjhants4q80"]
+[gd_scene load_steps=6 format=3 uid="uid://b4tjhants4q80"]
 
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="1_8vcq3"]
 [ext_resource type="Script" uid="uid://boq4sjg7rok8u" path="res://Scenes/Lobbys/Room/room.gd" id="1_ymt5j"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="2_ymt5j"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="3_7q6by"]
+[ext_resource type="PackedScene" uid="uid://1lyhum8j6io7" path="res://Scenes/Lobbys/SetupModes/Modes/1vs1/User_Lobby/user_lobby.tscn" id="5_7q6by"]
 
 [node name="Room" type="Panel"]
 custom_minimum_size = Vector2(400, 400)
@@ -26,14 +27,21 @@ autowrap_mode = 3
 [node name="Users" type="MarginContainer" parent="ScreenGridVertical"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
 
 [node name="ScreenGridHorizontal" parent="ScreenGridVertical/Users" instance=ExtResource("3_7q6by")]
 layout_mode = 2
+
+[node name="user_lobby" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
+layout_mode = 2
+size_flags_horizontal = 1
+font_size = 15
 
 [node name="Button" type="Button" parent="ScreenGridVertical"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Desc"
+text = "Entrar"
 
 [editable path="ScreenGridVertical/RoomName"]
