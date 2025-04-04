@@ -7,20 +7,27 @@
 
 [node name="user_lobby" type="MarginContainer"]
 offset_right = 100.0
-offset_bottom = 172.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+offset_bottom = 92.0
+size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 script = ExtResource("1_6jyxp")
 
 [node name="ScreenGridVertical" parent="." instance=ExtResource("1_swniu")]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/separation = 25
 
 [node name="UserImage" parent="ScreenGridVertical" instance=ExtResource("2_75jml")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Username" parent="ScreenGridVertical" instance=ExtResource("3_hxwd6")]
 layout_mode = 2
+
+[node name="BtnConfirm" type="Button" parent="ScreenGridVertical"]
+visible = false
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Confirmar"

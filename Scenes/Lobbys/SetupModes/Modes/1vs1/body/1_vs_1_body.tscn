@@ -32,53 +32,45 @@ theme_override_constants/separation = 0
 
 [node name="Prefix" parent="Content/MapInfo" instance=ExtResource("4_6q405")]
 layout_mode = 2
-theme_override_constants/margin_top = 30
 
 [node name="Text_label" parent="Content/MapInfo/Prefix" index="0"]
 theme_override_font_sizes/font_size = 50
 text = "MAPA"
 
-[node name="Prefix2" parent="Content/MapInfo" instance=ExtResource("4_6q405")]
+[node name="CurrentMap" parent="Content/MapInfo" instance=ExtResource("4_6q405")]
 layout_mode = 2
-theme_override_constants/margin_top = 50
 
-[node name="Text_label" parent="Content/MapInfo/Prefix2" index="0"]
+[node name="Text_label" parent="Content/MapInfo/CurrentMap" index="0"]
 theme_override_font_sizes/font_size = 50
 text = "Oregon"
 
 [node name="Users" type="MarginContainer" parent="Content"]
 layout_mode = 2
-size_flags_vertical = 4
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 300
 
 [node name="ScreenGridHorizontal" parent="Content/Users" instance=ExtResource("1_rhs6b")]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 1
 theme_override_constants/separation = 100
+alignment = 1
 
 [node name="Host" parent="Content/Users/ScreenGridHorizontal" instance=ExtResource("3_6q405")]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_horizontal = 4
 
 [node name="TextureVS" type="TextureRect" parent="Content/Users/ScreenGridHorizontal"]
-custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
 texture = ExtResource("5_slwwe")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="User2" parent="Content/Users/ScreenGridHorizontal" instance=ExtResource("3_6q405")]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 1
 
-[node name="Text_label" parent="Content/Users/ScreenGridHorizontal/User2/ScreenGridVertical/Username" index="0"]
-text = "Procurando Jogadores..."
-
 [editable path="Content/MapInfo/Prefix"]
-[editable path="Content/MapInfo/Prefix2"]
-[editable path="Content/Users/ScreenGridHorizontal/User2"]
-[editable path="Content/Users/ScreenGridHorizontal/User2/ScreenGridVertical/Username"]
+[editable path="Content/MapInfo/CurrentMap"]
