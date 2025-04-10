@@ -13,4 +13,5 @@ func open_home():
 
 func open_games():
 	var scene = AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.GAMES,func ():pass,AppManager.menu.body)
-	scene.get_all_games()
+	if scene != null:
+		scene.get_all_games()

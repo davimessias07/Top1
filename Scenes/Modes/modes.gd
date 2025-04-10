@@ -4,11 +4,12 @@ extends MarginContainer
 const MODES_BTN = preload("uid://cfdgpsufghyd4")
 @onready var screen_grid_horizontal: HBoxContainer = $ScreenGridVertical/Scroll/ScreenGridHorizontal
 
-@export var screen_name:String
+@export var screen_name:String = ""
 @export var screen_name_font_size:int = 30
 
 func get_all_modes(all_modes):
-	set_name_screen()
+	if screen_name != "":
+		set_name_screen()
  
 	for mode in all_modes:
 		var scene = MODES_BTN.instantiate()

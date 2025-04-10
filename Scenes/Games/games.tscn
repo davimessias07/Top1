@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cilk2ly4omn3o"]
+[gd_scene load_steps=5 format=3 uid="uid://cilk2ly4omn3o"]
 
 [ext_resource type="Script" uid="uid://csdg0of46rk4x" path="res://Scenes/Games/games.gd" id="1_fy54f"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="1_xhq7j"]
+[ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_5ow2k"]
+[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="3_03m7x"]
 
 [node name="Games" type="ScrollContainer"]
 anchors_preset = 15
@@ -11,8 +13,17 @@ grow_horizontal = 2
 grow_vertical = 2
 vertical_scroll_mode = 0
 script = ExtResource("1_fy54f")
+screen_name = "JOGOS"
+screen_name_font_size = 50
 
-[node name="ScreenGridHorizontal" parent="." instance=ExtResource("1_xhq7j")]
+[node name="ScreenGridVertical" parent="." instance=ExtResource("2_5ow2k")]
+layout_mode = 2
+
+[node name="NameScreen" parent="ScreenGridVertical" instance=ExtResource("3_03m7x")]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="ScreenGridHorizontal" parent="ScreenGridVertical" instance=ExtResource("1_xhq7j")]
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 size_flags_vertical = 6

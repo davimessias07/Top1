@@ -1,6 +1,6 @@
 extends Node
 
-func get_remote_user_attrs(action:Callable):
+func get_user_data(action:Callable):
 	var base = await load_data(AppManager.endpoint.USERS)
 	if base && base.doc_fields:
 		AppManager.account_controller.data_user = base.doc_fields
@@ -13,7 +13,6 @@ func get_app_data(action:Callable):
 		AppManager.app_data = base.doc_fields
 	
 	action.call()
-	print(AppManager.app_data)
 
 func save_data(endpoint:String,data:Dictionary):
 	var auth = Firebase.Auth.auth
@@ -37,11 +36,10 @@ func load_data(endpoint:String,doc = Firebase.Auth.auth.localid):
 		else:
 			print("documento n encontrado ",finished_task.error)
 			
-			#if finished_task.error.status == "NOT_FOUND":
-				#match finished_task.error.code:
-					#"404":
-						#pass
-	
+			if finished_task.error.status == "NOT_FOUND":
+				match finished_task.error.code:
+					"404":
+						print("ARQUIVO NÃO ENCONTRADO")
 	return document
 
 func get_doc(endpoint,doc):
@@ -62,7 +60,7 @@ func getRemoteImage(url: String,cover_image):
 	var imageUrl = str(url)
 	var fileName = imageUrl.get_file()
 	var filePath = AppManager.cache.cache_img_user + fileName
-#
+	
 	if isForceClearCache:
 		if FileAccess.file_exists(filePath):
 			print("deleta cache..." + filePath)

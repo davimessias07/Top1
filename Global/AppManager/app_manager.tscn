@@ -10,6 +10,9 @@
 [node name="AppManager" type="Node"]
 script = ExtResource("1_fjgmt")
 
+[node name="HTTPManager" parent="." instance=ExtResource("6_am4o0")]
+display_progress = false
+
 [node name="GlobalFunctions" parent="." instance=ExtResource("2_vbegn")]
 
 [node name="AccountController" parent="." instance=ExtResource("2_gjmqx")]
@@ -19,6 +22,3 @@ script = ExtResource("3_630vb")
 script = ExtResource("4_630vb")
 
 [node name="Scenes" type="Node" parent="."]
-
-[node name="HTTPManager" parent="." instance=ExtResource("6_am4o0")]
-display_progress = false
