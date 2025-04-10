@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://bsyypyfbuwipk" path="res://Global/Interface/Label/label_defaut.gd" id="1_uy0cs"]
 
 [node name="LabelDefaut" type="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 script = ExtResource("1_uy0cs")
 
@@ -11,3 +17,4 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Text"
 horizontal_alignment = 1
+autowrap_mode = 3

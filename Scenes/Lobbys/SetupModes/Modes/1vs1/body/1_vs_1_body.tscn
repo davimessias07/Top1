@@ -26,51 +26,64 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MapInfo" parent="Content" instance=ExtResource("2_01h6a")]
+[node name="ScreenGridVertical" parent="Content" instance=ExtResource("2_01h6a")]
 layout_mode = 2
+
+[node name="MapInfo" parent="Content/ScreenGridVertical" instance=ExtResource("2_01h6a")]
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_constants/separation = 0
 
-[node name="Prefix" parent="Content/MapInfo" instance=ExtResource("4_6q405")]
+[node name="Prefix" parent="Content/ScreenGridVertical/MapInfo" instance=ExtResource("4_6q405")]
 layout_mode = 2
 
-[node name="Text_label" parent="Content/MapInfo/Prefix" index="0"]
+[node name="Text_label" parent="Content/ScreenGridVertical/MapInfo/Prefix" index="0"]
 theme_override_font_sizes/font_size = 50
 text = "MAPA"
 
-[node name="CurrentMap" parent="Content/MapInfo" instance=ExtResource("4_6q405")]
+[node name="CurrentMap" parent="Content/ScreenGridVertical/MapInfo" instance=ExtResource("4_6q405")]
 layout_mode = 2
 
-[node name="Text_label" parent="Content/MapInfo/CurrentMap" index="0"]
+[node name="Text_label" parent="Content/ScreenGridVertical/MapInfo/CurrentMap" index="0"]
 theme_override_font_sizes/font_size = 50
 text = "Oregon"
 
-[node name="Users" type="MarginContainer" parent="Content"]
+[node name="Users" type="MarginContainer" parent="Content/ScreenGridVertical"]
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 300
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 300
+size_flags_horizontal = 4
+size_flags_vertical = 6
 
-[node name="ScreenGridHorizontal" parent="Content/Users" instance=ExtResource("1_rhs6b")]
+[node name="ScreenGridHorizontal" parent="Content/ScreenGridVertical/Users" instance=ExtResource("1_rhs6b")]
 layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 1
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Host" parent="Content/Users/ScreenGridHorizontal" instance=ExtResource("3_6q405")]
+[node name="Host" parent="Content/ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("3_6q405")]
 layout_mode = 2
-size_flags_horizontal = 4
 
-[node name="TextureVS" type="TextureRect" parent="Content/Users/ScreenGridHorizontal"]
+[node name="TextureVS" type="TextureRect" parent="Content/ScreenGridVertical/Users/ScreenGridHorizontal"]
 layout_mode = 2
 texture = ExtResource("5_slwwe")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="User2" parent="Content/Users/ScreenGridHorizontal" instance=ExtResource("3_6q405")]
+[node name="User2" parent="Content/ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("3_6q405")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
 
-[editable path="Content/MapInfo/Prefix"]
-[editable path="Content/MapInfo/CurrentMap"]
+[node name="Button" type="Button" parent="Content/ScreenGridVertical"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Esperando Jogadores"
+
+[editable path="Content/ScreenGridVertical/MapInfo/Prefix"]
+[editable path="Content/ScreenGridVertical/MapInfo/CurrentMap"]

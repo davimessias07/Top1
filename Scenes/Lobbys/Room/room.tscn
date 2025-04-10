@@ -2,25 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="1_8vcq3"]
 [ext_resource type="Script" uid="uid://boq4sjg7rok8u" path="res://Scenes/Lobbys/Room/room.gd" id="1_ymt5j"]
+[ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="2_qc14l"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="2_ymt5j"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="3_7q6by"]
 [ext_resource type="PackedScene" uid="uid://1lyhum8j6io7" path="res://Scenes/Lobbys/SetupModes/Modes/1vs1/User_Lobby/user_lobby.tscn" id="5_7q6by"]
-[ext_resource type="Texture2D" uid="uid://bsgh2f5o2kk2f" path="res://Global/Images/vs.png" id="7_cblky"]
 
-[node name="Room" type="Panel"]
-custom_minimum_size = Vector2(400, 400)
-offset_right = 400.0
-offset_bottom = 300.0
+[node name="Room" type="MarginContainer"]
+custom_minimum_size = Vector2(250, 500)
+offset_right = 830.0
+offset_bottom = 400.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ymt5j")
 
+[node name="BG" parent="." instance=ExtResource("2_qc14l")]
+layout_mode = 2
+
 [node name="ScreenGridVertical" parent="." instance=ExtResource("1_8vcq3")]
-layout_mode = 1
+layout_mode = 2
 
 [node name="RoomName" parent="ScreenGridVertical" instance=ExtResource("2_ymt5j")]
 layout_mode = 2
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 25
 
 [node name="Text_label" parent="ScreenGridVertical/RoomName" index="0"]
 theme_override_font_sizes/font_size = 35
@@ -30,6 +33,8 @@ autowrap_mode = 3
 [node name="Users" type="MarginContainer" parent="ScreenGridVertical"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 
 [node name="ScreenGridHorizontal" parent="ScreenGridVertical/Users" instance=ExtResource("3_7q6by")]
 layout_mode = 2
@@ -38,36 +43,39 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Host" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
+custom_minimum_size = Vector2(100, 140)
 layout_mode = 2
 size_flags_horizontal = 0
-font_size = 15
-
-[node name="TextureRect" type="TextureRect" parent="ScreenGridVertical/Users/ScreenGridHorizontal"]
-visible = false
-layout_mode = 2
-texture = ExtResource("7_cblky")
-expand_mode = 3
-stretch_mode = 5
+font_size = 20
+show_state = false
 
 [node name="Host2" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
+custom_minimum_size = Vector2(100, 140)
 layout_mode = 2
 size_flags_horizontal = 0
-font_size = 15
+font_size = 20
+show_state = false
 
 [node name="Host3" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
+custom_minimum_size = Vector2(100, 140)
 layout_mode = 2
 size_flags_horizontal = 0
-font_size = 15
+font_size = 20
+show_state = false
 
 [node name="Host4" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
+custom_minimum_size = Vector2(100, 140)
 layout_mode = 2
 size_flags_horizontal = 0
-font_size = 15
+font_size = 20
+show_state = false
 
 [node name="Host5" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
+custom_minimum_size = Vector2(100, 140)
 layout_mode = 2
 size_flags_horizontal = 0
-font_size = 15
+font_size = 20
+show_state = false
 
 [node name="Button" type="Button" parent="ScreenGridVertical"]
 custom_minimum_size = Vector2(0, 75)

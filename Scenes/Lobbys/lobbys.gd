@@ -7,7 +7,6 @@ var data_infos
 var current_grid
 
 @onready var margin_content: MarginContainer = $ScreenGridHorizontal/Content/ScrollContainer/MarginContainer
-@onready var bg: Panel = $BG
 
 const ROOM = preload("uid://b4tjhants4q80")
 var setup_modes = preload("uid://by7tox41fb6gw").new()
@@ -31,7 +30,6 @@ func check_type_room(type):
 			setup_modes._1vs1.set_setup(margin_content)
 
 func instance_lobbys():
-	bg.hide()
 	var path = "Games/R6/lobbys/1vs1"
 	var room_db = Firebase.Database.get_database_reference(path)
 	room_db.new_data_update.connect(new_data_updated)

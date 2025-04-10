@@ -10,5 +10,9 @@ func set_attrs(attrs):
 	label_defaut.set_text(attrs.mode_name)
 
 func btn_pressed():
-	var scene = await AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.CREATE_OR_VIEW_LOBBYS,func():pass,AppManager.menu.body)
-	scene.set_data_mode(mode_infos)
+	var args = {
+		"parent_scene":AppManager.menu.body,
+		"action_complete":{"action":"set_data_mode","action_args":mode_infos}
+	}
+	
+	AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.CREATE_OR_VIEW_LOBBYS,args)

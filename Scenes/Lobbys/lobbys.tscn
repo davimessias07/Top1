@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cea7nw37ng65g"]
+[gd_scene load_steps=3 format=3 uid="uid://cea7nw37ng65g"]
 
 [ext_resource type="Script" uid="uid://bxohlevk8ojnk" path="res://Scenes/Lobbys/lobbys.gd" id="1_od51i"]
-[ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="2_s6q86"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="4_lh0d7"]
 
 [node name="Lobbys" type="MarginContainer"]
@@ -11,9 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_od51i")
-
-[node name="BG" parent="." instance=ExtResource("2_s6q86")]
-layout_mode = 2
 
 [node name="ScreenGridHorizontal" parent="." instance=ExtResource("4_lh0d7")]
 layout_mode = 2

@@ -44,9 +44,14 @@ func trade_scene(path_scene:String,args:Dictionary = {}):
 					var callable = null
 					
 					if typeof(action) == TYPE_STRING:
-						callable = Callable(new_scene,action)
+						if new_scene.has_method(action):
+							callable = Callable(new_scene,action)
 					elif typeof(action) == TYPE_CALLABLE:
-						callable = action
+						if action.is_valid():
+							callable = action
+						else:
+							printerr("action invalido")
+							return
 					
 					if callable:
 						if callable.is_valid():

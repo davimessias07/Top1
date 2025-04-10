@@ -9,5 +9,9 @@ func set_attrs(attrs):
 	label_defaut.set_text(attrs.game_name)
 
 func btn_pressed():
-	var scene = await AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.MODES,func():pass,AppManager.menu.body)
-	scene.get_all_modes(game_infos.modes)
+	var args = {
+		"parent_scene":AppManager.menu.body,
+		"action_complete":{"action":"get_all_modes","action_args":game_infos.modes}
+	}
+	
+	AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.MODES,args)

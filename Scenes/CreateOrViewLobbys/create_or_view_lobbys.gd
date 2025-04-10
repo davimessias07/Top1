@@ -4,7 +4,6 @@ extends Control
 @onready var view_lobbys: Button = $Body/ScreenGridHorizontal/ViewLobbys
 
 var player_id = ""
-var db_ref = Firebase.Database.get_database_reference("Games/R6/lobbys/1vs1/rooms")
 var data_mode 
 
 func set_data_mode(data_info):
@@ -13,8 +12,6 @@ func set_data_mode(data_info):
 
 func _ready() -> void:
 	player_id = Firebase.Auth.auth.localid
-	db_ref.new_data_update.connect(new_data_updated)
-	db_ref.patch_data_update.connect(patch_data_updated)
 
 func new_data_updated(data):
 	print("new_data_updated")
@@ -29,6 +26,10 @@ func set_buttons():
 	view_lobbys.connect("pressed",instance_room_view)
 
 func create_room():
+	var db_ref = Firebase.Database.get_database_reference("Games/R6/lobbys/1vs1/rooms")
+	db_ref.new_data_update.connect(new_data_updated)
+	db_ref.patch_data_update.connect(patch_data_updated)
+	
 	var type_room = data_mode.mode_name
 	
 	var room_attrs = {
@@ -42,9 +43,17 @@ func create_room():
 	instance_room(data_mode.mode_name)
 
 func instance_room(type_mode):
-	var scene = await AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.LOBBYS)
-	scene.check_type_room(type_mode)
+	var args = {
+		"parent_scene":AppManager.menu.body,
+		"action_complete":{"action":"check_type_room","action_args":type_mode}
+	}
+	
+	AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.LOBBYS,args)
 
 func instance_room_view():
-	var scene = await AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.LOBBYS,func():pass,AppManager.menu.body)
-	scene.instance_lobbys()
+	var args = {
+		"parent_scene":AppManager.menu.body,
+		"action_complete":{"action":"instance_lobbys"}
+	}
+	
+	AppManager.load_scene_controller.trade_scene(AppManager.path_scenes.LOBBYS,args)
