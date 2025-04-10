@@ -9,8 +9,8 @@
 
 [node name="Room" type="MarginContainer"]
 custom_minimum_size = Vector2(250, 500)
-offset_right = 830.0
-offset_bottom = 400.0
+offset_right = 610.0
+offset_bottom = 500.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ymt5j")
@@ -28,7 +28,6 @@ theme_override_constants/margin_top = 25
 [node name="Text_label" parent="ScreenGridVertical/RoomName" index="0"]
 theme_override_font_sizes/font_size = 35
 text = "NameRoom"
-autowrap_mode = 3
 
 [node name="Users" type="MarginContainer" parent="ScreenGridVertical"]
 layout_mode = 2

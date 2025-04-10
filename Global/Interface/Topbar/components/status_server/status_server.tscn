@@ -37,5 +37,6 @@ layout_mode = 2
 [node name="Text_label" parent="HBoxContainer/Status_text" index="0"]
 theme_override_font_sizes/font_size = 15
 text = "status"
+horizontal_alignment = 0
 
 [editable path="HBoxContainer/Status_text"]

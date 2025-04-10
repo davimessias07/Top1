@@ -1,49 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://u07fo376hqbv"]
+[gd_scene load_steps=3 format=3 uid="uid://u07fo376hqbv"]
 
-[ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="1_jlx7h"]
 [ext_resource type="Script" uid="uid://bbgcxj6k87731" path="res://Global/Interface/Topbar/components/User/user.gd" id="1_otlsw"]
-[ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_otlsw"]
-[ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="3_eb78x"]
 [ext_resource type="PackedScene" uid="uid://2fwq5eyff1hp" path="res://Global/Interface/Image/components/circle.tscn" id="4_55dwf"]
 
 [node name="User" type="MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+offset_bottom = 60.0
 size_flags_horizontal = 10
-theme_override_constants/margin_right = 15
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 script = ExtResource("1_otlsw")
 
-[node name="ScreenGridHorizontal" parent="." instance=ExtResource("1_jlx7h")]
-layout_mode = 2
-theme_override_constants/separation = 25
-alignment = 2
-
-[node name="ScreenGridVertical" parent="ScreenGridHorizontal" instance=ExtResource("2_otlsw")]
-visible = false
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 6
 
-[node name="username" parent="ScreenGridHorizontal/ScreenGridVertical" instance=ExtResource("3_eb78x")]
-visible = false
-layout_mode = 2
-
-[node name="Text_label" parent="ScreenGridHorizontal/ScreenGridVertical/username" index="0"]
-theme_override_font_sizes/font_size = 20
-text = "Username"
-
-[node name="balance" parent="ScreenGridHorizontal/ScreenGridVertical" instance=ExtResource("3_eb78x")]
-visible = false
-layout_mode = 2
-
-[node name="Text_label" parent="ScreenGridHorizontal/ScreenGridVertical/balance" index="0"]
-theme_override_font_sizes/font_size = 20
-text = "R$ 100"
-
-[node name="Circle" parent="ScreenGridHorizontal" instance=ExtResource("4_55dwf")]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[editable path="ScreenGridHorizontal/ScreenGridVertical/username"]
-[editable path="ScreenGridHorizontal/ScreenGridVertical/balance"]
+[node name="Circle" parent="Button" instance=ExtResource("4_55dwf")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.833
+anchor_bottom = 1.0
+offset_right = 0.0199966
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
