@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://f4xmbrjm6ciw"]
+[gd_scene load_steps=10 format=3 uid="uid://f4xmbrjm6ciw"]
 
 [ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="1_ay41u"]
 [ext_resource type="Script" uid="uid://c4qb007w4pwih" path="res://Global/Interface/Topbar/top_bar.gd" id="1_jvrs1"]
@@ -7,25 +7,32 @@
 [ext_resource type="PackedScene" uid="uid://byrmy5wk1msv" path="res://Global/Interface/Topbar/components/status_server/status_server.tscn" id="5_43ofd"]
 [ext_resource type="PackedScene" uid="uid://u07fo376hqbv" path="res://Global/Interface/Topbar/components/User/user.tscn" id="6_ay41u"]
 [ext_resource type="PackedScene" uid="uid://c7myththkfybh" path="res://Global/Interface/Topbar/components/scenes_buttons/scenes_buttons.tscn" id="6_jvrs1"]
+[ext_resource type="PackedScene" uid="uid://bitheo467qqhk" path="res://Global/Interface/Topbar/components/Infos/infos.tscn" id="8_43ofd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x32b"]
 bg_color = Color(1, 1, 1, 1)
 
 [node name="TopBar" type="MarginContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 100)
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 60.0
+offset_bottom = 100.0
 grow_horizontal = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
 script = ExtResource("1_jvrs1")
 
-[node name="BG" parent="." instance=ExtResource("1_ay41u")]
+[node name="Bar" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BG" parent="Bar" instance=ExtResource("1_ay41u")]
 self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5x32b")
 
-[node name="Logo" type="MarginContainer" parent="."]
+[node name="Logo" type="MarginContainer" parent="Bar"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -34,21 +41,24 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="LogoImg" type="TextureRect" parent="Logo"]
+[node name="LogoImg" type="TextureRect" parent="Bar/Logo"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_jvrs1")
 expand_mode = 1
 
-[node name="ScreenGridHorizontal" parent="." instance=ExtResource("3_43ofd")]
+[node name="ScreenGridHorizontal" parent="Bar" instance=ExtResource("3_43ofd")]
 layout_mode = 2
 
-[node name="StatusServer" parent="ScreenGridHorizontal" instance=ExtResource("5_43ofd")]
+[node name="StatusServer" parent="Bar/ScreenGridHorizontal" instance=ExtResource("5_43ofd")]
 layout_mode = 2
 
-[node name="scenes_buttons" parent="ScreenGridHorizontal" instance=ExtResource("6_jvrs1")]
+[node name="scenes_buttons" parent="Bar/ScreenGridHorizontal" instance=ExtResource("6_jvrs1")]
 layout_mode = 2
 
-[node name="User" parent="ScreenGridHorizontal" instance=ExtResource("6_ay41u")]
+[node name="User" parent="Bar/ScreenGridHorizontal" instance=ExtResource("6_ay41u")]
+layout_mode = 2
+
+[node name="Infos" parent="." instance=ExtResource("8_43ofd")]
 layout_mode = 2

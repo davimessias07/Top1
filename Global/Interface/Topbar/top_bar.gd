@@ -1,11 +1,11 @@
-extends MarginContainer
+extends Control
 
-@onready var logo_img: TextureRect = $Logo/LogoImg
-@onready var status_server: MarginContainer = $ScreenGridHorizontal/StatusServer
-@onready var user: MarginContainer = $ScreenGridHorizontal/User
-@onready var scenes_buttons: MarginContainer = $ScreenGridHorizontal/scenes_buttons
+@onready var logo_img: TextureRect = $ScreenGridVertical/Bar/Logo/LogoImg
+@onready var status_server: MarginContainer = $Bar/ScreenGridHorizontal/StatusServer
+@onready var user: Control = $Bar/ScreenGridHorizontal/User
+@onready var scenes_buttons: MarginContainer = $Bar/ScreenGridHorizontal/scenes_buttons
 
-@onready var screen_grid_horizontal: HBoxContainer = $ScreenGridHorizontal
+@onready var screen_grid_horizontal: HBoxContainer = $Bar/ScreenGridHorizontal
 
 func start_setup():
 	status_server.set_status_setup()

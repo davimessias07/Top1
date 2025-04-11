@@ -10,9 +10,6 @@ script = ExtResource("1_8inha")
 
 [node name="BaseModal" parent="." instance=ExtResource("1_tf6kh")]
 
-[node name="TopBar" parent="BaseModal/BG/ScreenGridVertical" index="0"]
-custom_minimum_size = Vector2(0, 100)
-
 [node name="ScreenGridHorizontal" parent="BaseModal/BG/ScreenGridVertical" index="1" instance=ExtResource("2_mf1wf")]
 layout_mode = 2
 

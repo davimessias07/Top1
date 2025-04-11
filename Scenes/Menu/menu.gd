@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var player_id = ""
-@onready var top_bar: MarginContainer = $BaseModal/BG/ScreenGridVertical/TopBar
+@onready var top_bar: Control = $BaseModal/BG/ScreenGridVertical/TopBar
 @onready var body: MarginContainer = $BaseModal/BG/ScreenGridVertical/ScreenGridHorizontal/Body
 
 func _ready() -> void:

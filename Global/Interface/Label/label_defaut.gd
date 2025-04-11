@@ -1,7 +1,7 @@
 extends MarginContainer
 
 @onready var text_label: Label = $Text_label
-var default_font_size = 30
+@export var default_font_size = 30
 
 func set_text(new_text,font_size:int = default_font_size ):
 	text_label.text = str(new_text)
