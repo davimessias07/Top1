@@ -39,8 +39,8 @@ func complete_set_nodes():
 
 func check_login():
 	if account_controller.get_state_login():
-		global_functions.get_user_data(load_scene_controller.trade_scene.bind(path_scenes.MENU))
 		print("Ta logado")
+		global_functions.get_user_data(load_scene_controller.trade_scene.bind(path_scenes.MENU))
 	else:
-		account_controller.open_login_scene()
 		print("Ta Deslogado")
+		account_controller.open_login_scene()

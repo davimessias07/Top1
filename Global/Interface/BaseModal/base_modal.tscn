@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpnvqhkg3tjgt"]
+[gd_scene load_steps=4 format=3 uid="uid://cpnvqhkg3tjgt"]
 
 [ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="1_du23g"]
-[ext_resource type="Texture2D" uid="uid://0o3oqdnhy4bx" path="res://Global/Images/Bg.jpg" id="2_5x32b"]
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_cdl3q"]
 [ext_resource type="PackedScene" uid="uid://f4xmbrjm6ciw" path="res://Global/Interface/Topbar/top_bar.tscn" id="4_cdl3q"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vycu7"]
-texture = ExtResource("2_5x32b")
 
 [node name="BaseModal" type="MarginContainer"]
 anchors_preset = 15
@@ -17,7 +13,6 @@ grow_vertical = 2
 
 [node name="BG" parent="." instance=ExtResource("1_du23g")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_vycu7")
 
 [node name="ScreenGridVertical" parent="BG" instance=ExtResource("2_cdl3q")]
 layout_mode = 1
