@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1ofg8yi34di6"]
+[gd_scene load_steps=9 format=3 uid="uid://d1ofg8yi34di6"]
 
 [ext_resource type="PackedScene" uid="uid://cpnvqhkg3tjgt" path="res://Global/Interface/BaseModal/base_modal.tscn" id="1_heq6h"]
 [ext_resource type="Script" uid="uid://d2ncrs5v5bcn2" path="res://Global/AppManager/Controllers/AccountController/Login/login.gd" id="1_jc376"]
@@ -7,15 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bysg1vomfts2s" path="res://Global/AppManager/Controllers/AccountController/Feedback/feedback.tscn" id="4_heq6h"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="5_antec"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="6_lu7n2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdw12"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(1, 1, 1, 1)
-corner_detail = 5
-shadow_size = 15
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmmfr"]
 
@@ -56,7 +47,7 @@ size_flags_vertical = 4
 [node name="BG" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body" instance=ExtResource("2_lu7n2")]
 self_modulate = Color(0.20871, 0.20871, 0.20871, 1)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mdw12")
+disable_get_remote = true
 
 [node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body" instance=ExtResource("3_y2nhn")]
 layout_mode = 2
@@ -84,6 +75,7 @@ size_flags_vertical = 0
 [node name="Text_label" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Title" index="0"]
 theme_override_font_sizes/font_size = 45
 text = "Login"
+autowrap_mode = 0
 
 [node name="Lines" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical"]
 layout_mode = 2
