@@ -8,14 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://cja8y6lxh7xwd" path="res://Global/Interface/Image/image.tscn" id="7_bqs61"]
 [ext_resource type="PackedScene" uid="uid://2fwq5eyff1hp" path="res://Global/Interface/Image/components/circle.tscn" id="8_rm8wh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdw12"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(1, 1, 1, 1)
-corner_detail = 5
-shadow_size = 15
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqs61"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
 
 [node name="CreateAccountScreen" type="MarginContainer" node_paths=PackedStringArray("email_line", "password_line", "username_line", "sign_in_button")]
 anchors_preset = 15
@@ -32,9 +32,6 @@ sign_in_button = NodePath("BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenG
 [node name="BaseModal" parent="." instance=ExtResource("1_dudd5")]
 layout_mode = 2
 
-[node name="ScreenGridHorizontal" parent="BaseModal/BG/ScreenGridVertical/TopBar" index="2"]
-visible = false
-
 [node name="CreateAccount" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical" index="1"]
 custom_minimum_size = Vector2(550, 650)
 layout_mode = 2
@@ -42,9 +39,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 
 [node name="BG" parent="BaseModal/BG/ScreenGridVertical/CreateAccount" instance=ExtResource("2_lhi8r")]
-self_modulate = Color(0.20871, 0.20871, 0.20871, 1)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mdw12")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqs61")
 
 [node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/CreateAccount" instance=ExtResource("3_epux2")]
 layout_mode = 2
@@ -82,12 +78,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical"]
+[node name="btnSelectImage" type="Button" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical"]
 custom_minimum_size = Vector2(250, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Adicionar Imagem"
+text = "Selecionar Imagem"
 
 [node name="Lines" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical"]
 layout_mode = 2
@@ -129,9 +125,6 @@ text = "Criar Conta"
 [connection signal="pressed" from="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/SignInButton/button" to="." method="_on_button_pressed"]
 
 [editable path="BaseModal"]
-[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/StatusServer/HBoxContainer/LabelDefaut"]
-[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut"]
-[editable path="BaseModal/BG/ScreenGridVertical/TopBar/ScreenGridHorizontal/User/ScreenGridHorizontal/ScreenGridVertical/LabelDefaut2"]
 [editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Title"]
 [editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image"]
 [editable path="BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical/Circle"]

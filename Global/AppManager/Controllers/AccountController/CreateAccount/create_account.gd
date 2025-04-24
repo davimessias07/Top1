@@ -4,17 +4,28 @@ extends MarginContainer
 @export var password_line:LineEdit
 @export var username_line:LineEdit
 @export var sign_in_button:Button
+@onready var top_bar: MarginContainer = $BaseModal/BG/ScreenGridVertical/TopBar
+
+@onready var btn_select_image: Button = $BaseModal/BG/ScreenGridVertical/CreateAccount/ScreenGridVertical/Body/ScreenGridVertical/Image/ScreenGridVertical/btnSelectImage
 
 func _ready():
+	top_bar.hide_infos()
 	Firebase.Auth.signup_succeeded.connect(on_signup_succeeded)
 	Firebase.Auth.signup_failed.connect(on_signup_failed)
 	sign_in_button.connect("pressed",sig_in_request)
+	btn_select_image.connect("pressed",show_all_images)
+
+func show_all_images():
+	var arr_imgs = await get_all_images()
+	print("ARRAY DE IMGS ", arr_imgs)
+	if arr_imgs != null and len(arr_imgs) > 0:
+		for img in arr_imgs:
+			print("Imagem >>> ", img)
 
 func on_signup_succeeded(auth):
 	Firebase.Auth.save_auth(auth)
 	var fn = save_data_user_complete
 	save_data_user(fn)
-
 
 func on_signup_failed(error_code, message):
 	print(error_code)
@@ -56,6 +67,13 @@ func save_data_user_complete():
 func get_base_user():
 	var collection: FirestoreCollection = Firebase.Firestore.collection(AppManager.endpoint.USERS)
 	var task: FirestoreTask = collection.get_doc("user_base")
+	var finished_task: FirestoreTask = await task.task_finished
+	var document = finished_task.document
+	return document
+
+func get_all_images():
+	var collection: FirestoreCollection = Firebase.Firestore.collection(AppManager.endpoint.APP)
+	var task: FirestoreTask = collection.get_doc("default_imgs")
 	var finished_task: FirestoreTask = await task.task_finished
 	var document = finished_task.document
 	return document

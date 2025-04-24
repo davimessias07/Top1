@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1ofg8yi34di6"]
+[gd_scene load_steps=10 format=3 uid="uid://d1ofg8yi34di6"]
 
 [ext_resource type="PackedScene" uid="uid://cpnvqhkg3tjgt" path="res://Global/Interface/BaseModal/base_modal.tscn" id="1_heq6h"]
 [ext_resource type="Script" uid="uid://d2ncrs5v5bcn2" path="res://Global/AppManager/Controllers/AccountController/Login/login.gd" id="1_jc376"]
@@ -7,6 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://bysg1vomfts2s" path="res://Global/AppManager/Controllers/AccountController/Feedback/feedback.tscn" id="4_heq6h"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="5_antec"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="6_lu7n2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heq6h"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmmfr"]
 
@@ -40,14 +49,14 @@ theme_override_constants/separation = 30
 layout_mode = 2
 
 [node name="Body" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical"]
+custom_minimum_size = Vector2(0, 550)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="BG" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body" instance=ExtResource("2_lu7n2")]
-self_modulate = Color(0.20871, 0.20871, 0.20871, 1)
 layout_mode = 2
-disable_get_remote = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_heq6h")
 
 [node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body" instance=ExtResource("3_y2nhn")]
 layout_mode = 2
@@ -65,7 +74,7 @@ theme_override_constants/margin_right = 25
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_constants/separation = 50
+theme_override_constants/separation = 60
 
 [node name="Title" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical" instance=ExtResource("5_antec")]
 layout_mode = 2
@@ -83,7 +92,7 @@ size_flags_vertical = 4
 
 [node name="ScreenGridVertical" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Lines" instance=ExtResource("3_y2nhn")]
 layout_mode = 2
-theme_override_constants/separation = 35
+theme_override_constants/separation = 50
 
 [node name="EmailLineEdit" type="LineEdit" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Lines/ScreenGridVertical"]
 unique_name_in_owner = true
@@ -119,15 +128,16 @@ text = "Entrar"
 [node name="Fotter" type="MarginContainer" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical"]
 layout_mode = 2
 size_flags_vertical = 10
-theme_override_constants/margin_bottom = 50
 
 [node name="ScreenGridHorizontal" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Fotter" instance=ExtResource("6_lu7n2")]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = -10
 alignment = 1
 
 [node name="LabelDefaut" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Fotter/ScreenGridHorizontal" instance=ExtResource("5_antec")]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 
 [node name="Text_label" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Fotter/ScreenGridHorizontal/LabelDefaut" index="0"]
 theme_override_font_sizes/font_size = 20
@@ -136,7 +146,7 @@ text = "Não possui cadastro?"
 [node name="CreateAccount" type="Button" parent="BaseModal/BG/ScreenGridVertical/LoginModal/ScreenGridVertical/Body/ScreenGridVertical/Body/ScreenGridVertical/Fotter/ScreenGridHorizontal"]
 self_modulate = Color(0.00784314, 0.509804, 0.87451, 1)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mmmfr")

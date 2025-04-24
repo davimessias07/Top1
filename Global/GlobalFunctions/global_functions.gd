@@ -36,10 +36,10 @@ func load_data(endpoint:String,doc = Firebase.Auth.auth.localid):
 		else:
 			print("documento n encontrado ",finished_task.error)
 			
-			if finished_task.error.status == "NOT_FOUND":
-				match finished_task.error.code:
-					"404":
-						print("ARQUIVO NÃO ENCONTRADO")
+			#if finished_task.error.status == "NOT_FOUND":
+				#match finished_task.error.code:
+					#"404":
+						#print("ARQUIVO NÃO ENCONTRADO")
 	return document
 
 func get_doc(endpoint,doc):

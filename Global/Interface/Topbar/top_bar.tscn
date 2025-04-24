@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://f4xmbrjm6ciw"]
+[gd_scene load_steps=10 format=3 uid="uid://f4xmbrjm6ciw"]
 
 [ext_resource type="PackedScene" uid="uid://do2raj5ioala3" path="res://Global/Interface/Background/bg.tscn" id="1_ay41u"]
 [ext_resource type="Script" uid="uid://c4qb007w4pwih" path="res://Global/Interface/Topbar/top_bar.gd" id="1_jvrs1"]
@@ -8,6 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://u07fo376hqbv" path="res://Global/Interface/Topbar/components/User/user.tscn" id="6_ay41u"]
 [ext_resource type="PackedScene" uid="uid://c7myththkfybh" path="res://Global/Interface/Topbar/components/scenes_buttons/scenes_buttons.tscn" id="6_jvrs1"]
 [ext_resource type="PackedScene" uid="uid://bitheo467qqhk" path="res://Global/Interface/Topbar/components/Infos/infos.tscn" id="8_43ofd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43ofd"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(1, 1, 1, 0.588235)
+shadow_size = 4
+anti_aliasing = false
 
 [node name="TopBar" type="MarginContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -24,14 +32,9 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="Bar"]
-layout_mode = 2
-
 [node name="BG" parent="Bar" instance=ExtResource("1_ay41u")]
-visible = false
-self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
 layout_mode = 2
-disable_get_remote = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_43ofd")
 
 [node name="Logo" type="MarginContainer" parent="Bar"]
 custom_minimum_size = Vector2(50, 50)

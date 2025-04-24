@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://do2raj5ioala3"]
+[gd_scene load_steps=3 format=3 uid="uid://do2raj5ioala3"]
 
 [ext_resource type="Script" uid="uid://6ljwm6clqa3a" path="res://Global/Interface/Background/bg.gd" id="1_obval"]
 
-[node name="BG" type="TextureRect"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obval"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="BG" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,4 +14,5 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_obval")
 script = ExtResource("1_obval")
