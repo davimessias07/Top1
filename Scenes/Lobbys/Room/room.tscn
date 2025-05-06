@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4tjhants4q80"]
+[gd_scene load_steps=8 format=3 uid="uid://b4tjhants4q80"]
 
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="1_8vcq3"]
 [ext_resource type="Script" uid="uid://boq4sjg7rok8u" path="res://Scenes/Lobbys/Room/room.gd" id="1_ymt5j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="2_ymt5j"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="3_7q6by"]
 [ext_resource type="PackedScene" uid="uid://1lyhum8j6io7" path="res://Scenes/Lobbys/SetupModes/Modes/1vs1/User_Lobby/user_lobby.tscn" id="5_7q6by"]
+[ext_resource type="Texture2D" uid="uid://bsgh2f5o2kk2f" path="res://Global/Images/vs.png" id="7_agwbk"]
 
 [node name="Room" type="MarginContainer"]
 custom_minimum_size = Vector2(250, 500)
@@ -41,36 +42,27 @@ size_flags_vertical = 4
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Host" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
-custom_minimum_size = Vector2(100, 140)
+[node name="MarginContainer" type="MarginContainer" parent="ScreenGridVertical/Users/ScreenGridHorizontal"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenGridVertical/Users/ScreenGridHorizontal/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Host" parent="ScreenGridVertical/Users/ScreenGridHorizontal/MarginContainer/HBoxContainer" instance=ExtResource("5_7q6by")]
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 font_size = 20
 show_state = false
 
-[node name="Host2" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
-custom_minimum_size = Vector2(100, 140)
+[node name="TextureRect" type="TextureRect" parent="ScreenGridVertical/Users/ScreenGridHorizontal/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-font_size = 20
-show_state = false
+texture = ExtResource("7_agwbk")
+expand_mode = 3
 
-[node name="Host3" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
-custom_minimum_size = Vector2(100, 140)
-layout_mode = 2
-size_flags_horizontal = 0
-font_size = 20
-show_state = false
-
-[node name="Host4" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
-custom_minimum_size = Vector2(100, 140)
-layout_mode = 2
-size_flags_horizontal = 0
-font_size = 20
-show_state = false
-
-[node name="Host5" parent="ScreenGridVertical/Users/ScreenGridHorizontal" instance=ExtResource("5_7q6by")]
-custom_minimum_size = Vector2(100, 140)
+[node name="Host2" parent="ScreenGridVertical/Users/ScreenGridHorizontal/MarginContainer/HBoxContainer" instance=ExtResource("5_7q6by")]
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 font_size = 20
