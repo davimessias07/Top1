@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk5pwcaa0fm6u"]
+[gd_scene load_steps=11 format=3 uid="uid://bk5pwcaa0fm6u"]
 
 [ext_resource type="Script" uid="uid://cfhg7lmqbp56d" path="res://Scenes/Lobbys/SetupModes/Modes/1vs1/body/1_vs_1_body.gd" id="1_01h6a"]
 [ext_resource type="PackedScene" uid="uid://dl21gbumyn8vd" path="res://Global/Interface/ScreenGridHorizontal/screen_grid_horizontal.tscn" id="1_rhs6b"]
@@ -10,6 +10,38 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajync"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blsys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajync"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.263266, 0.45953, 2.59906e-06, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blsys"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.174055, 0.315304, 1.34766e-06, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 5
 
 [node name="1vs1Body" type="Control"]
 layout_mode = 3
@@ -86,12 +118,25 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ajync")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_blsys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ajync")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ajync")
+theme_override_styles/normal = SubResource("StyleBoxFlat_blsys")
 disabled = true
 action_mode = 0
 text = "Esperando Jogador..."
+
+[node name="bloq_btn" type="Control" parent="Content/ScreenGridVertical/btnStateRoom"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="Content/ScreenGridVertical/MapInfo/Prefix"]
 [editable path="Content/ScreenGridVertical/MapInfo/CurrentMap"]
