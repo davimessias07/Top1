@@ -19,10 +19,12 @@ func new_data_updated(data):
 	print(data)
 	result(data)
 
-func patch_data_updated(data_new):
+func patch_data_updated(data_new,bool = false):
 	print("patch_data_updated")
 	print(data_new)
-	update(data_new.data)
+	
+	if bool == true:
+		update(data_new.data)
 
 func check_type_room(type):
 	match type:
@@ -32,11 +34,15 @@ func check_type_room(type):
 func instance_lobbys():
 	var path = "Games/R6/lobbys/1vs1"
 	var room_db = Firebase.Database.get_database_reference(path)
-	room_db.new_data_update.connect(new_data_updated)
+	var data_up = await room_db.new_data_update
+	result(data_up)
 	room_db.patch_data_update.connect(patch_data_updated)
 
 
 func result(data_teste):
+	if current_grid != null:
+		return
+	
 	var arr:Array
 	
 	if margin_content.get_child_count() > 0:

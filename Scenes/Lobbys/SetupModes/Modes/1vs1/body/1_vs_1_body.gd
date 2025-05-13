@@ -12,7 +12,6 @@ const DEFAULT_COLOR = Color.WHITE
 func _ready() -> void:
 	host.update_ready(is_ready)
 	btn_state_room.connect("pressed",set_room_state.bind("confirm"))
-	set_room_state("ready")
 	set_color_font_default()
 
 func set_host_attrs():

@@ -35,10 +35,11 @@ func create_room():
 	var room_attrs = {
 		"id_room":0,
 		"name_room": AppManager.account_controller.data_user.name,
-		"type":type_room
+		"type":type_room,
+		"users":{AppManager.account_controller.data_user.name:AppManager.account_controller.data_user}
 	}
 	
-	await db_ref.update(player_id,room_attrs)
+	await db_ref.update(AppManager.account_controller.data_user.name,room_attrs)
 	
 	instance_room(data_mode.mode_name)
 
