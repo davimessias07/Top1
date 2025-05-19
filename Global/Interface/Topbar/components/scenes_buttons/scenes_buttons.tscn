@@ -8,8 +8,12 @@ draw_center = false
 
 [node name="scenes_buttons" type="MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
+offset_right = 513.0
+offset_bottom = 95.0
 size_flags_horizontal = 10
 size_flags_stretch_ratio = 8.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
 script = ExtResource("1_l73nq")
 
 [node name="Buttons" parent="." instance=ExtResource("2_5hccy")]

@@ -6,7 +6,7 @@
 [node name="User" type="MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 offset_right = 200.0
-offset_bottom = 60.0
+offset_bottom = 85.0
 size_flags_horizontal = 10
 size_flags_vertical = 3
 theme_override_constants/margin_top = 10

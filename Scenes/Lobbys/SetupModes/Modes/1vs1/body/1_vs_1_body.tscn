@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxba6dprkg4gp" path="res://Global/Interface/ScreenGridVertical/screen_grid_vertical.tscn" id="2_01h6a"]
 [ext_resource type="PackedScene" uid="uid://1lyhum8j6io7" path="res://Scenes/Lobbys/SetupModes/Modes/1vs1/User_Lobby/user_lobby.tscn" id="3_6q405"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="4_6q405"]
-[ext_resource type="Texture2D" uid="uid://bsgh2f5o2kk2f" path="res://Global/Images/vs.png" id="5_slwwe"]
+[ext_resource type="Texture2D" uid="uid://bsgh2f5o2kk2f" path="res://Global/textures/vs.png" id="5_slwwe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajync"]
 

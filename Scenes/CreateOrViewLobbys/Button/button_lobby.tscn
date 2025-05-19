@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ci7qobv3vbdu4"]
 
-[ext_resource type="Texture2D" uid="uid://dxycqppncicp3" path="res://Global/Images/Criar_sala.png" id="1_osi6u"]
+[ext_resource type="Texture2D" uid="uid://dxycqppncicp3" path="res://Global/textures/Criar_sala.png" id="1_osi6u"]
 [ext_resource type="PackedScene" uid="uid://2d7cuw3cs6p0" path="res://Global/Interface/Label/label_defaut.tscn" id="2_l47mt"]
 [ext_resource type="Script" uid="uid://c34ndn5n6uv7" path="res://Scenes/CreateOrViewLobbys/Button/button_lobby.gd" id="2_s1xhg"]
 

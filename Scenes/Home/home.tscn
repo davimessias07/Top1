@@ -61,7 +61,6 @@ theme_override_constants/margin_left = 65
 theme_override_constants/margin_top = 35
 
 [node name="Text_label" parent="ScrollContainer/ScreenGridVertical/ProjectInfo" index="0"]
-theme_override_font_sizes/font_size = 35
 text = "Informações do projeto"
 horizontal_alignment = 0
 uppercase = true
@@ -73,6 +72,7 @@ theme_override_constants/margin_top = 35
 theme_override_constants/margin_right = 65
 
 [node name="Text_label" parent="ScrollContainer/ScreenGridVertical/Description" index="0"]
+theme_override_font_sizes/font_size = 25
 text = "O que é?
 
 RiseUp Arena é uma plataforma de apostas baseadas em desempenho, onde jogadores de PC
@@ -118,7 +118,6 @@ Potencial:
 - Alvo: jogadores que já gastam tempo e dinheiro em games ? agora podem ganhar com
 performance."
 horizontal_alignment = 0
-autowrap_mode = 3
 
 [editable path="ScrollContainer/ScreenGridVertical/Notícias"]
 [editable path="ScrollContainer/ScreenGridVertical/ProjectInfo"]
